@@ -1,32 +1,32 @@
-
-"Pathogen plugin manager"
+"pathogen plugin manager
 execute pathogen#infect()
+let g:airline_theme='tomorrow'
 
-"----------Settings-----------"	
+"----------Settings-----------
 
 syntax on			 "Syntax highlight on
 
 set backspace=indent,eol,start	 "Make backspace work like in mac
-let mapleader = ','              "Change leader from \ to ','
+let mapleader = ','              "Change leader from 
 set number			 "Sets linenumbers
 set linespace=15		 "Sets line spacing but only in gui
 
-"----------Search-----------"	
+"----------Search-----------	
 
 set hlsearch			 "Highlight search term 
 set incsearch			 "Incremental highlight term
 
-"----------Mappings-----------"
+"----------Mappings-----------
 
-"Open .vimrc by writing ',ev'"
+"Open .vimrc by writing 
 nmap <Leader>ev :tabedit $MYVIMRC<cr>
-"Deselect search highlight by pressing ',<space>'"
+"Deselect search highlight by pressing 
 nmap <Leader><space> :nohlsearch<cr>
 
 
-"----------Auto-commmands-----"
+"----------Auto-commmands----
 
-"Automatically source the .vimrc file on save."
+"Automatically source the .vimrc file on save.
 
 augroup autosourcing
 	autocmd!

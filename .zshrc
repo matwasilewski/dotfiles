@@ -3,9 +3,8 @@ ZSH_THEME=""
 
 # --- Sets the prompt style
 fpath=( "$HOME/.zfunctions" $fpath )
-
 autoload -U promptinit; promptinit
-prompt purer
+prompt pure
 
 
 # --- Plugins
