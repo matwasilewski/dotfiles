@@ -18,7 +18,7 @@ The color scheme is [**base16 - Oceanic Next**](https://github.com/wbinnssmith/b
 
 ## Installation
 
-
+Coming soon!
 
 ## System information
 
