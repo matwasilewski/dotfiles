@@ -4,7 +4,7 @@ Running [**iTerm2**](https://www.iterm2.com/) with [**oh-my-zsh**](https://githu
 
 Another alternative is [**Hyper**](https://github.com/zeit/hyper), it can run the same config.
 
-The color scheme is [**base16 - Oceanic Next**](https://github.com/wbinnssmith/base16-oceanic-next/tree/master/iterm2) for _iTerm2_ and the font is [**Menlo**](https://github.com/mhartington/oceanic-next-iterm)
+The color scheme is [**base16 - Oceanic Next**](https://github.com/wbinnssmith/base16-oceanic-next/tree/master/iterm2) for _iTerm2_ and the font is [**Menlo**](https://github.com/hbin/top-programming-fonts)
 
 ![Screenshot](http://i.imgur.com/8r8wSev.png)
 
