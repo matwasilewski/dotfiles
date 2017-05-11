@@ -18,7 +18,9 @@ The color scheme is [**base16 - Oceanic Next**](https://github.com/wbinnssmith/b
 
 ## Installation
 
-1 . Download and install latest beta from [**download@iTerm2**](https://www.iterm2.com/downloads.html)
+If you are on _Windows 10_ I recommend installing [bash on Windows/WSL](https://msdn.microsoft.com/en-us/commandline/wsl/about) and using `bash` through either [Hyper](https://github.com/zeit/hyper) or [cmder](http://cmder.net/). Through `bash` you can install `zsh` and run this config.
+
+1 . Download and install latest beta from [**download@iTerm2**](https://www.iterm2.com/downloads.html) (Only for macOS)
 
 2 . Install `zsh` according to these instructions: [**installing zsh**](https://github.com/robbyrussell/oh-my-zsh/wiki/Installing-ZSH)
 
