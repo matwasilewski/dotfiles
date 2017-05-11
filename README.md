@@ -80,5 +80,5 @@ git clone git://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggesti
 
 
 ## System information
-
+_System information displayed with [neofetch](https://github.com/dylanaraps/neofetch)_
 ![neofetch output](http://i.imgur.com/smBe6gX.png)
