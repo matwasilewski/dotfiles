@@ -49,34 +49,22 @@ sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/to
 npm install -g pure-prompt
 ```
 
-8 . Tell `oh-my-zsh` to use this prompt by editing the `.zshrc`-file in your home folder `~`. Or just copy the `.zshrc`-file in this repository:
+8 . Tell `oh-my-zsh` to use this prompt by editing the `.zshrc`-file in your home folder `~`. Or just copy the `.zshrc`-file in this repository. **Also copy `.zshenv` to make sure you export the right paths**:
 
 ```bash
 # --- Sets the prompt style
-fpath=( "$HOME/.zfunctions" $fpath )
-
 autoload -U promptinit; promptinit
 prompt pure
 ```
 _Save the file afterwards_
 
-9 . Reload the `.zshrc` by running:
+9 . Reload the `.zshrc` by running. Everytime you make a change in `.zshrc` you have to _source_ the file so it reloads. This can be done with either `.` or `source`:
 
 ```bash
 . ~/.zshrc
 ```
 
-10 . I also have two extra plugins installed: [`zsh-syntax-highlighting`](https://github.com/zsh-users/zsh-syntax-highlighting) and [`zsh-autosuggestions`](https://github.com/zsh-users/zsh-autosuggestions). They are already added so just install them with these commands:
-
-_Install `zsh-syntax-highlighting`_
-```bash
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
-```
-
-_Install `zsh-autosuggestions`_
-```bash
-git clone git://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
-```
+10 . I also have two extra plugins installed: [`zsh-syntax-highlighting`](https://github.com/zsh-users/zsh-syntax-highlighting) and [`zsh-autosuggestions`](https://github.com/zsh-users/zsh-autosuggestions). You can either install them or remove the lines from `.zshrc` that includes them.
 
 
 ## Extra 
