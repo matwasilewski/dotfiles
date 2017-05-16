@@ -79,6 +79,20 @@ git clone git://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggesti
 ```
 
 
+## Extra 
+
+##### Merge title bar
+
+To merge the title bar with the background, just change the `Tab Color` to the same as the background color:
+
+![Tab Color](https://i.imgur.com/yqe8Z5Y.png)
+
+##### Padding
+
+I have added padding to all sides which you can do under `Advanced` in settings. Just search for `margin` and change `Height of top and botton margins in terminal spaces` and `Width of left and right margins in terminal spaces`
+
+![Padding](https://i.imgur.com/ywslqBg.png)
+
 ## System information
 _System information displayed with [neofetch](https://github.com/dylanaraps/neofetch)_
 ![neofetch output](http://i.imgur.com/smBe6gX.png)
