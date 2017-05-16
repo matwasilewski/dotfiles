@@ -96,3 +96,4 @@ I have added padding to all sides which you can do under `Advanced` in settings.
 ## System information
 _System information displayed with [neofetch](https://github.com/dylanaraps/neofetch)_
 ![neofetch output](http://i.imgur.com/smBe6gX.png)
+
