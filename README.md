@@ -1,12 +1,14 @@
 # dotfiles
 
-Running [**iTerm2**](https://www.iterm2.com/) with [**oh-my-zsh**](https://github.com/robbyrussell/oh-my-zsh) and [**pure-prompt**](https://github.com/sindresorhus/pure). Inspiration from [*sindresorhus/pure*]() and [this setup@reddit/r/unixporn](https://www.reddit.com/r/unixporn/comments/5vke7s/osx_iterm2_tmux_vim/?utm_content=comments&utm_medium=browse&utm_source=reddit&utm_name=unixporn)   
+> Running [**iTerm2**](https://www.iterm2.com/) with [**oh-my-zsh**](https://github.com/robbyrussell/oh-my-zsh) and [**Spaceship-zsh-theme**](https://github.com/denysdovhan/spaceship-zsh-theme). 
 
-Another alternative is [**Hyper**](https://github.com/zeit/hyper), it can run the same config.
+Another alternative is [**Hyper**](https://github.com/zeit/hyper), it can run the same config and looks basically the same.
 
-The color scheme is [**base16 - Oceanic Next**](https://github.com/wbinnssmith/base16-oceanic-next/tree/master/iterm2) for _iTerm2_ and the font is [**Menlo**](https://github.com/hbin/top-programming-fonts)
+The color scheme is [**iTerm2 - Snazzy**](https://github.com/sindresorhus/iterm2-snazzy) for _iTerm2_ and the font is [**Fira Code**](https://github.com/tonsky/FiraCode)
 
-![Screenshot](http://i.imgur.com/8r8wSev.png)
+![Screenshot](screenshot.png)
+
+_The bottom row is **tmux**-windows_
 
 ## Files
 

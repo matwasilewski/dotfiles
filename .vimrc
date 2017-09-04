@@ -4,6 +4,7 @@ execute pathogen#infect()
 "----------Settings-----------
 
 syntax on			 "Syntax highlight on
+colorscheme nord
 
 set backspace=indent,eol,start	 "Make backspace work like in mac
 let mapleader = ','              "Change leader from 
