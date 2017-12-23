@@ -8,7 +8,7 @@ The color scheme is [**iTerm2 - Snazzy**](https://github.com/sindresorhus/iterm2
 
 ![Screenshot](screenshot.png)
 
-_The bottom row is different windows in **tmux**. Only visible if you are running `tmux`.
+_The bottom row is from `tmux`. The pane shows which process is running and which folder you are currently in_
 
 ## Files
 
@@ -73,8 +73,3 @@ To merge the title bar with the background, just change the `Tab Color` to the s
 I have added padding to all sides which you can do under `Advanced` in settings. Just search for `margin` and change `Height of top and botton margins in terminal spaces` and `Width of left and right margins in terminal spaces`
 
 ![Padding](https://i.imgur.com/ywslqBg.png)
-
-## System information
-_System information displayed with [neofetch](https://github.com/dylanaraps/neofetch)_
-![neofetch output](http://i.imgur.com/smBe6gX.png)
-
