@@ -11,3 +11,8 @@ gulp-boilerplate(){
 mongo-connect(){
   mongo --port 27017 -u $1 -p $2 --authenticationDatabase "admin"
 }
+
+python-http(){
+  chrome http://localhost:8000
+  python3 -m http.server 8000
+}

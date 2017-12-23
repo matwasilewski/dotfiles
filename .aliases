@@ -4,6 +4,8 @@ alias c='cd'
 alias clhist='echo "" > ~/.zsh_history & exec $SHELL -l'
 alias gitrm="rm -rf .git"
 alias stsdir="cd ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User"
+alias rm_modules="find . -name "node_modules" -type d -prune -exec rm -rf '{}' +"
+alias gh="gh-home"
 
 # --- Config ---
 
@@ -18,6 +20,8 @@ alias loadnvm=". $HOME/.nvm/nvm.sh"
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 alias st="sublime"
 alias pa="php artisan"
+alias p-serve="python3 -m http.server 3000"
+alias p-serve-o="python3 -m http.server 3000 && open http://localhost:3000"
 
 # --- Functions ---
 
@@ -31,3 +35,12 @@ alias kwmon="brew services start kwm"
 alias kwmoff="brew services stop kwm"
 
 alias imgur="imgur-screenshot.sh -l true"
+
+alias a='fasd -a'        # any
+alias s='fasd -si'       # show / search / select
+alias d='fasd -d'        # directory
+alias f='fasd -f'        # file
+alias sd='fasd -sid'     # interactive directory selection
+alias sf='fasd -sif'     # interactive file selection
+alias z='fasd_cd -d'     # cd, same functionality as j in autojump
+alias zz='fasd_cd -d -i' # cd with interactive selection
