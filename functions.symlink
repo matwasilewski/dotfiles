@@ -16,3 +16,7 @@ python-http(){
   chrome http://localhost:8000
   python3 -m http.server 8000
 i}
+
+xcat(){
+	cat $1 | xclip -selection clipboard
+}
