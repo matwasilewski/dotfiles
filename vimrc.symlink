@@ -1,15 +1,17 @@
 "pathogen plugin manager
-execute pathogen#infect()
+" execute pathogen#infect()
 
 "----------Settings-----------
 
 syntax on      "Syntax highlight on
-colo nord
+" colo nord
 
 set backspace=indent,eol,start   "Make backspace work like in mac
 let mapleader = ','              "Change leader from 
 set number       "Sets linenumbers
+set relativenumber
 set linespace=15     "Sets line spacing but only in gui
+set colorcolumn=80
 
 set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
 
@@ -26,7 +28,7 @@ set noshowmode
 
 "----------Search-----------  
 
-set hlsearch       "Highlight search term 
+"set hlsearch       "Highlight search term 
 set incsearch      "Incremental highlight term
 
 "----------Mappings-----------

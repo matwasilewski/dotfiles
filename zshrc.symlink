@@ -1,0 +1,17 @@
+ZSH_THEME="agnoster"
+# --- Plugins
+
+plugins=(git 
+          zsh-syntax-highlighting 
+          zsh-autosuggestions 
+          vi-mode 
+          z 
+          k 
+          ansiweather)
+
+# --- Source 
+source $ZSH/oh-my-zsh.sh
+source $HOME/.functions
+source $HOME/.aliases
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
