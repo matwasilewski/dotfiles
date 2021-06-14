@@ -7,3 +7,4 @@ export VISUAL=vim
 export EDITOR="$VISUAL"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/.composer/vendor/bin:$PATH"
+export PATH="/usr/share/Anaconda3/bin:$PATH"
