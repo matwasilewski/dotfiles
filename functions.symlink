@@ -20,3 +20,7 @@ i}
 xcat(){
 	cat $1 | xclip -selection clipboard
 }
+
+p8(){
+  ping 8.8.8.8
+}
