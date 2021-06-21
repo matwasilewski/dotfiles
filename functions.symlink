@@ -24,3 +24,29 @@ xcat(){
 p8(){
   ping 8.8.8.8
 }
+
+xpwd(){
+  pwd | xclip -selection clipboard
+}
+
+nc(){
+  nordvpn connect
+}
+
+nd(){
+  nordvpn disconnect
+}
+
+ns(){
+  nordvpn status
+}
+
+killswitch_enable(){
+  nordvpn set killswitch enable
+}
+
+killswitch_disable(){
+  nordvpn set killswitch disable 
+}
+
+
