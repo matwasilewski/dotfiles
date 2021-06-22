@@ -49,4 +49,6 @@ killswitch_disable(){
   nordvpn set killswitch disable 
 }
 
-
+xfile(){
+  readlink -f $1 | xclip -selection clipboard 
+}
