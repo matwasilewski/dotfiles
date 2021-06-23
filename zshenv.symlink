@@ -1,6 +1,7 @@
 skip_global_compinit=1
 
 # - Exports
+export GOOGLE_APPLICATION_CREDENTIALS="/home/biorelate/Documents/gcp-keys/biorelate-sandbox-7678a5c9516a.json"
 
 export ZSH=$HOME/.oh-my-zsh
 export VISUAL=vim
@@ -9,3 +10,6 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 export PUBSUB_EMULATOR_HOST=127.0.0.1:8085
+
+export NODE_PATH="/home/biorelate/node_modules"
+export NODE_PATH="/home/biorelate/node_modules/obographviz/bin:$NODE_PATH"
