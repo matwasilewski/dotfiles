@@ -54,3 +54,7 @@ gcloud-current-project(){
 gcloud-current-account(){
   gcloud config list --format 'value(core.account)' 2>/dev/null
 }
+
+set-executable(){
+  sudo chmod uog+x $1
+}
