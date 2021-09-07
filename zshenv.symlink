@@ -5,9 +5,6 @@ export ZSH=$HOME/.oh-my-zsh
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
-# Deals with some bugs related to poetry - may be deleted in the future 
-export PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring
-
 export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.composer/vendor/bin:$PATH"
