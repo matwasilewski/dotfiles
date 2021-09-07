@@ -49,4 +49,15 @@ python-venv(){
 
 pgres(){
   sudo su - postgres
+
+gcloud-current-project(){
+  gcloud config list --format 'value(core.project)' 2>/dev/null
+}
+
+gcloud-current-account(){
+  gcloud config list --format 'value(core.account)' 2>/dev/null
+}
+
+set-executable(){
+  sudo chmod uog+x $1
 }

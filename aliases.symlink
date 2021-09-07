@@ -25,3 +25,5 @@ alias venv="python-venv"
 
 alias mongoc="mongo-connect"
 
+# --- Functions ---
+alias gs="git status"
