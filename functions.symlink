@@ -47,6 +47,10 @@ python-venv(){
   python3 -m venv venv && . venv/bin/activate && pip install -U pip setuptools wheels &> /dev/null
 }
 
+pgres(){
+  sudo su - postgres
+}
+
 gcloud-current-project(){
   gcloud config list --format 'value(core.project)' 2>/dev/null
 }
@@ -58,3 +62,4 @@ gcloud-current-account(){
 set-executable(){
   sudo chmod uog+x $1
 }
+
