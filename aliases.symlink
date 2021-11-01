@@ -30,3 +30,8 @@ alias mongoc="mongo-connect"
 alias gs="git status"
 alias gch="git checkout"
 
+
+# --- Git ---
+alias pu="poetry update"
+alias pi="poetry install"
+alias pupi="poetry update && poetry install"
