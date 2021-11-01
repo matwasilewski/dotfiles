@@ -5,6 +5,7 @@ alias clhist='echo "" > ~/.zsh_history & exec $SHELL -l'
 alias gitrm="rm -rf .git"
 alias rm_modules="find . -name "node_modules" -type d -prune -exec rm -rf '{}' +"
 alias gh="gh-home"
+alias python="python3"
 
 # --- Config ---
 
@@ -31,7 +32,7 @@ alias gs="git status"
 alias gch="git checkout"
 
 
-# --- Git ---
+# --- Poetry ---
 alias pu="poetry update"
 alias pi="poetry install"
 alias pupi="poetry update && poetry install"
