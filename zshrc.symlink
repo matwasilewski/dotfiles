@@ -6,8 +6,7 @@ plugins=(git
           zsh-autosuggestions 
           vi-mode 
           z 
-          k 
-          ansiweather)
+          k)
 
 # --- Source 
 source $ZSH/oh-my-zsh.sh

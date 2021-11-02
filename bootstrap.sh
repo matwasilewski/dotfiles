@@ -156,11 +156,22 @@ install_powerline_fonts () {
   apt-get install fonts-powerline
 }
 
+install_plugins () {
+  info "Installing plugins"
+  git clone https://github.com/supercrabtree/k $ZSH_CUSTOM/plugins/k
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+  git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+}
+
+create_local_dotfiles () { 
+  if [ ! -f "$HOME/.zshenv_local" ]; then
+    touch "$HOME/.zshenv_local"
+  fi 
+}
+
 # setup_gitconfig
-# powerline fonts - needed for oh-my-zsh to functio correctly
-# Ommitted - moved to the SystemSetup script.
-# install_powerline_fonts
 install_oh_my_zsh
 install_dotfiles
+install_plugins
 
 echo '  All installed!'
