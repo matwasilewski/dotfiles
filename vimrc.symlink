@@ -11,8 +11,8 @@ let mapleader = ','              "Change leader from
 set number       "Sets linenumbers
 set relativenumber
 set linespace=15     "Sets line spacing but only in gui
-set colorcolumn=160
-set clipboard=unnamedplus
+set colorcolumn=80
+set clipboard=unnamed
 
 set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
 
