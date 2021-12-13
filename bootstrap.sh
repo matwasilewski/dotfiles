@@ -151,11 +151,6 @@ install_oh_my_zsh () {
   fi
 }
 
-install_powerline_fonts () {
-  info "Installing powerline fonts"
-  apt-get install fonts-powerline
-}
-
 install_plugins () {
   info "Installing plugins"
   git clone https://github.com/supercrabtree/k $ZSH_CUSTOM/plugins/k
@@ -173,5 +168,6 @@ create_local_dotfiles () {
 install_oh_my_zsh
 install_dotfiles
 install_plugins
+create_local_dotfiles
 
 echo '  All installed!'
