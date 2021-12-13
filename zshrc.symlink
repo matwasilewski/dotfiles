@@ -2,6 +2,7 @@ ZSH_THEME="agnoster"
 # --- Plugins
 
 plugins=(git 
+          poetry
           zsh-syntax-highlighting 
           zsh-autosuggestions 
           vi-mode)
