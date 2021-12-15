@@ -66,3 +66,12 @@ set-executable(){
 pupi(){
   poetry update && poetry install
 }
+
+poetry-lint(){
+  poetry run mypy .
+  poetry run black --line-length 79 -S .
+  poetry run isort -w 79 .
+  poetry run flakehell lint
+  poetry run flake8 --ignore Q000
+}
+
