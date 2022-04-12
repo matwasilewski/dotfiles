@@ -75,3 +75,46 @@ poetry-lint(){
   poetry run flake8 --ignore Q000
 }
 
+git-fix-author(){
+  WRONG_EMAIL="mat.p.wasilewski@gmail.com"
+  NEW_NAME="Mateusz Wasilewski"
+  NEW_EMAIL="mateusz.wasilewski@biorelate.com"
+
+  if [ "$GIT_COMMITTER_EMAIL" = "$WRONG_EMAIL" ]
+  then
+      export GIT_COMMITTER_NAME="$NEW_NAME"
+      export GIT_COMMITTER_EMAIL="$NEW_EMAIL"
+  fi
+  if [ "$GIT_AUTHOR_EMAIL" = "$WRONG_EMAIL" ]
+  then
+      export GIT_AUTHOR_NAME="$NEW_NAME"
+      export GIT_AUTHOR_EMAIL="$NEW_EMAIL"
+  fi
+}
+
+git-amend-author-biorelate()
+{
+  AUTHOR=$(git show | grep Author)
+  WRONG_AUTHOR="Author: santiagonasar <mat.p.wasilewski@gmail.com>"
+  if [ "$WRONG_AUTHOR" = "$AUTHOR" ]; then
+    git commit --amend --author="Mateusz Wasilewski <mateusz.wasilewski@biorelate.com>" --no-edit
+    echo "fixed!"
+  else
+    echo "Not fixed!"
+  fi  
+  git rebase --continue
+}
+
+poetry-lint()
+{
+  poetry run black --line-length 79 -S .
+  poetry run flake8 --ignore Q000
+  poetry run flakehell lint
+  poetry run isort -w 79 --profile=black .
+  poetry run mypy .
+}
+
+ports()
+{
+  sudo lsof -i -P -n | grep LISTEN
+}
