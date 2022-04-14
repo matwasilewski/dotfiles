@@ -118,3 +118,17 @@ ports()
 {
   sudo lsof -i -P -n | grep LISTEN
 }
+
+dcu()
+{
+  if [ "$1" = "--rebuild" ]
+  then
+    docker compose up --build --force-recreate --no-deps
+  elif [ ! -z "$1" ]
+  then
+    echo "$1 not a correct argument; pass --rebuild or nothing"
+  else
+    docker compose up 
+  fi
+}
+
