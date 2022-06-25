@@ -105,6 +105,13 @@ git-amend-author-biorelate()
   git rebase --continue
 }
 
+git-push-existing-repo()
+{
+  git remote add origin $1
+  git branch -M main
+  git push -u origin main
+}
+
 poetry-lint()
 {
   poetry run black --line-length 79 -S .
@@ -132,3 +139,7 @@ dcu()
   fi
 }
 
+pvd()
+{
+  pyenv virtualenv-delete $1 
+}
