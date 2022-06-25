@@ -1,2 +1,3 @@
 zshenv_local.symlink
 local-functions.symlink
+gitconfig.local.symlink
