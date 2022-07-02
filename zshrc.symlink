@@ -5,7 +5,9 @@ plugins=(git
           poetry
           zsh-syntax-highlighting 
           zsh-autosuggestions 
-          vi-mode)
+          vi-mode
+          kubectl
+)
 
 # --- Source 
 source $ZSH/oh-my-zsh.sh
