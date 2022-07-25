@@ -158,6 +158,11 @@ install_plugins () {
   git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 }
 
+install_theme () {
+  info "Downloading theme..."
+  git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+}
+
 create_local_dotfiles () { 
   if [ ! -f "$HOME/.zshenv_local" ]; then
     touch "$HOME/.zshenv_local"
@@ -168,6 +173,7 @@ create_local_dotfiles () {
 install_oh_my_zsh
 install_dotfiles
 install_plugins
+install_theme
 create_local_dotfiles
 
 echo '  All installed!'
