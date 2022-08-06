@@ -152,3 +152,7 @@ exercism () {
         cd "${out[-1]}" || return 1
     fi
 }
+
+bats() {
+    BATS_RUN_SKIPPED=true command bats *.bats
+}
