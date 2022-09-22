@@ -6,6 +6,7 @@ alias gitrm="rm -rf .git"
 alias rm_modules="find . -name "node_modules" -type d -prune -exec rm -rf '{}' +"
 alias gh="gh-home"
 alias ping="gping"
+alias prettyjson='python -m json.tool'
 
 # alias python="python3"
 
