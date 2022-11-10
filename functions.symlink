@@ -115,8 +115,7 @@ git-push-existing-repo()
 poetry-lint()
 {
   poetry run black --line-length 79 -S .
-  poetry run flake8 --ignore Q000
-  poetry run flakehell lint
+  poetry run flakeheaven lint
   poetry run isort -w 79 --profile=black .
   poetry run mypy .
 }
@@ -141,10 +140,15 @@ dcu()
 
 pvd()
 {
-  pyenv virtualenv-delete $1 
+  pyenv virtualenv-delete -f $1 
 }
 
 
 bats() {
     BATS_RUN_SKIPPED=true command bats *.bats
+}
+
+
+poetry-flakeheaven-plugins-install() {
+  poetry add --group dev flake8-bugbear flake8-builtins flake8-comprehensions darglint flake8-docstrings flake8-eradicate flake8-isort flake8-mutable flake8-pytest-style flake8-spellcheck pep8-naming
 }
