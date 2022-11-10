@@ -20,6 +20,7 @@ plugins=(git
 source $ZSH/oh-my-zsh.sh
 source $HOME/.functions
 source $HOME/.local-functions
+source $HOME/.terraform_functions
 source $HOME/.aliases
 source /opt/homebrew/share/zsh-syntax-highlighting
 source /opt/homebrew/share/zsh-autosuggestions
