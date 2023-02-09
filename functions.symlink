@@ -150,7 +150,7 @@ bats() {
 
 
 poetry-flakeheaven-plugins-install() {
-  poetry add --group dev flake8-bugbear flake8-builtins flake8-comprehensions darglint flake8-docstrings flake8-eradicate flake8-isort flake8-mutable flake8-pytest-style flake8-spellcheck pep8-naming
+  poetry add --group dev flake8-bugbear flake8-builtins flake8-comprehensions darglint flake8-docstrings flake8-eradicate flake8-isort flake8-mutable flake8-pytest-style flake8-spellcheck pep8-naming flake8-quotes flake8-commas
 }
 
 gauth() {
