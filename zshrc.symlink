@@ -39,3 +39,5 @@ if [ -f '/Users/mwasilewski/opt/google-cloud-sdk/path.zsh.inc' ]; then . '/Users
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/mwasilewski/opt/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/mwasilewski/opt/google-cloud-sdk/completion.zsh.inc'; fi
+
+export PATH="/opt/homebrew/opt/mysql@5.7/bin:$PATH"
