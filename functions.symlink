@@ -67,6 +67,11 @@ pupi(){
   poetry update && poetry install
 }
 
+pipb(){
+  poetry install && poetry build 
+}
+
+
 poetry-lint(){
   poetry run mypy .
   poetry run black --line-length 79 -S .
