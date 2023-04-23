@@ -123,6 +123,7 @@ poetry-lint()
   poetry run flakeheaven lint
   poetry run isort -w 79 --profile=black .
   poetry run mypy .
+  poetry run isort -w 79 .
 }
 
 ports()
