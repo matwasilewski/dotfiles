@@ -174,3 +174,27 @@ git-pull-recursive() {
       git -C "$dir" pull
   ' \;
 }
+
+git-switch-recursive() {
+    new_branch="$1"
+
+    echo "New branch name $new_branch"
+    if [ -z "$new_branch" ]; then
+        echo "Error: No branch name provided."
+        return 1
+    fi
+    
+    find . -type d -name ".git" -exec sh -c '
+        dir=$(dirname "{}")
+        echo "Processing directory: $dir"
+        branch=$(git -C "$dir" symbolic-ref --short HEAD)
+
+        if git -C "$dir" rev-parse --verify --quiet "$new_branch"; then
+            echo "Branch $new_branch already exists in $dir"
+        else
+            git -C "$dir" checkout -b "$new_branch" || { echo "Failed to switch branch in $dir"; exit 1; }
+        fi
+        
+        git -C "$dir" checkout -b "$new_branch" || { echo "Failed to switch branch in $dir"; exit 1; }
+    ' \;
+}
