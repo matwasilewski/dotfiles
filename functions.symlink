@@ -162,3 +162,15 @@ poetry-flakeheaven-plugins-install() {
 gauth() {
   gcloud auth login && gcloud auth application-default login
 }
+
+git-pull-recursive() {
+  find . -type d -name ".git" -exec sh -c '
+      dir=$(dirname "{}")
+      echo "Processing directory: $dir"
+      branch=$(git -C "$dir" symbolic-ref --short HEAD)
+      if [ "$branch" != "main" ]; then
+          git -C "$dir" checkout main || { echo "Failed to checkout main in $dir"; exit 1; }
+      fi
+      git -C "$dir" pull
+  ' \;
+}
