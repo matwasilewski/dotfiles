@@ -175,6 +175,18 @@ git-pull-recursive() {
   ' \;
 }
 
+git-fetch-recursive() {
+  find . -type d -name ".git" -exec sh -c '
+      dir=$(dirname "{}")
+      echo "Processing directory: $dir"
+      branch=$(git -C "$dir" symbolic-ref --short HEAD)
+      if [ "$branch" != "main" ]; then
+          git -C "$dir" checkout main || { echo "Failed to checkout main in $dir"; exit 1; }
+      fi
+      git -C "$dir" fetch 
+  ' \;
+}
+
 git-switch-recursive() {
     new_branch="$1"
 
