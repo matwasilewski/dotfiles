@@ -152,10 +152,47 @@ install_oh_my_zsh () {
 }
 
 install_plugins () {
+  info() {
+    echo "[INFO] $1"
+  }
+
+  clone_plugin_if_not_exists() {
+    local plugin_url=$1
+    local plugin_dir=$2
+    if [ ! -d "$plugin_dir" ]; then
+      git clone "$plugin_url" "$plugin_dir"
+      info "Cloned $plugin_url into $plugin_dir"
+    else
+      info "$plugin_dir already exists"
+    fi
+  }
+
+  install_brew_package() {
+    local package_name=$1
+    if ! brew list | grep -q "$package_name"; then
+      brew install "$package_name"
+      info "Installed $package_name"
+    else
+      info "$package_name already installed"
+    fi
+  }
+
   info "Installing plugins"
-  git clone https://github.com/supercrabtree/k $ZSH_CUSTOM/plugins/k
-  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-  git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+  # Ensure $ZSH_CUSTOM is set to a valid directory
+  ZSH_CUSTOM=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}
+
+  # Create the custom plugins directory if it doesn't exist
+  mkdir -p $ZSH_CUSTOM/plugins
+
+  # Install Homebrew packages
+  install_brew_package "zsh-syntax-highlighting"
+  install_brew_package "zsh-autosuggestions"
+
+  # Clone plugins if they don't exist
+  clone_plugin_if_not_exists "https://github.com/zsh-users/zsh-syntax-highlighting.git" "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
+  clone_plugin_if_not_exists "https://github.com/zsh-users/zsh-autosuggestions" "$ZSH_CUSTOM/plugins/zsh-autosuggestions"
+  clone_plugin_if_not_exists "https://github.com/supercrabtree/k" "$ZSH_CUSTOM/plugins/k"
 }
 
 install_theme () {
