@@ -48,3 +48,6 @@
         old = red bold
         new = green bold
         whitespace = red reverse
+[user]
+	name = Mateusz Wasilewski
+	email = mateusz.wasilewski@biorelate.com
