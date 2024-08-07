@@ -19,26 +19,6 @@ xpwd(){
   pwd | xclip -selection clipboard
 }
 
-nc(){
-  nordvpn connect
-}
-
-nd(){
-  nordvpn disconnect
-}
-
-ns(){
-  nordvpn status
-}
-
-killswitch_enable(){
-  nordvpn set killswitch enable
-}
-
-killswitch_disable(){
-  nordvpn set killswitch disable 
-}
-
 xfile(){
   readlink -f $1 | xclip -selection clipboard 
 }
