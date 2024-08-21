@@ -212,7 +212,7 @@ docker-rm-1h() {
 }
 
 
-print_directory_contents() {
+catdir() {
   # Check if a directory path is provided as an argument
   if [ -z "$1" ]; then
     echo "Usage: print_directory_contents <directory_path>"
