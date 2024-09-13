@@ -206,7 +206,32 @@ create_local_dotfiles () {
   fi 
 }
 
-# setup_gitconfig
+
+install_dependencies () {
+  info 'Checking and installing dependencies'
+
+  # Check if brew is installed
+  if ! command -v brew &> /dev/null; then
+    echo "Homebrew not found. Installing Homebrew..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  fi
+
+  # List of dependencies
+  dependencies=("wget" "git")
+
+  for dep in "${dependencies[@]}"; do
+    if ! command -v $dep &> /dev/null; then
+      echo "$dep not found. Installing $dep..."
+      brew install $dep
+    else
+      echo "$dep is already installed."
+    fi
+  done
+
+  success 'All dependencies installed'
+}
+
+install_dependencies
 install_oh_my_zsh
 install_dotfiles
 install_plugins
