@@ -2,9 +2,6 @@
 
 alias c='cd'
 alias clhist='echo "" > ~/.zsh_history & exec $SHELL -l'
-alias gitrm="rm -rf .git"
-alias rm_modules="find . -name "node_modules" -type d -prune -exec rm -rf '{}' +"
-alias gh="gh-home"
 alias ping="gping"
 alias prettyjson='python -m json.tool'
 
@@ -15,9 +12,6 @@ alias prettyjson='python -m json.tool'
 alias zcfg="vim ~/.zshrc"
 alias zrld="source ~/.zshrc"
 
-alias phpcfg='vim /usr/local/etc/php/7.1/php.ini'
-alias loadnvm=". $HOME/.nvm/nvm.sh"
-
 # --- Applications ---
 
 alias st="sublime"
@@ -26,10 +20,6 @@ alias p-serve-o="python3 -m http.server 3000 && open http://localhost:3000"
 alias venv="python-venv"
 alias jn="jupyter notebook"
 alias pjn="poetry run jupyter notebook"
-
-# --- Functions ---
-
-alias mongoc="mongo-connect"
 
 # --- Git ---
 alias gs="git status"
