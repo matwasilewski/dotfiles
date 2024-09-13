@@ -15,14 +15,6 @@ export PATH="$HOME/Opt:$PATH"
 export PATH="$HOME/.pyenv/bin:$PATH"
 export REQUESTS_CA_BUNDLE="$HOME/.mac-ca-roots"
 
-export USE_GKE_GCLOUD_AUTH_PLUGIN=True
-
-export PUBSUB_EMULATOR_HOST=127.0.0.1:8085
-
-export NODE_PATH="/home/biorelate/node_modules"
-export NODE_PATH="/home/biorelate/node_modules/obographviz/bin:$NODE_PATH"
-
 export PATH="/usr/local/opt/openssl/bin:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
-
 export TZ=UTC
