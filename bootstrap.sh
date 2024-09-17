@@ -200,12 +200,15 @@ install_theme () {
   git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
 }
 
-create_local_dotfiles () { 
+create_local_files () { 
   if [ ! -f "$HOME/.zshenv_local" ]; then
     touch "$HOME/.zshenv_local"
   fi 
-}
+  if [ ! -f "$HOME/.local-functions" ]; then
+    touch "$HOME/.local-functions"
+  fi 
 
+}
 
 install_dependencies () {
   info 'Checking and installing dependencies'
@@ -236,6 +239,6 @@ install_oh_my_zsh
 install_dotfiles
 install_plugins
 install_theme
-create_local_dotfiles
+create_local_files
 
 echo '  All installed!'
