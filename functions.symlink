@@ -1,7 +1,7 @@
 python-http(){
   chrome http://localhost:8000
   python3 -m http.server 8000
-i}
+}
 
 xcat(){
 	cat $1 | xclip -selection clipboard
@@ -190,10 +190,52 @@ git-branch-latest() {
   git for-each-ref --sort=-committerdate --format='%(committerdate:short) %(authorname) %(refname:short) %(subject)' refs/heads/
 }
 
+git-commits-not-on-main() {
+  # Ensure the script is run inside a Git repository
+  if ! git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
+      echo "This script must be run inside a Git repository."
+      return 1
+  fi
+
+  # Detect the default branch (either 'main' or 'master')
+  if git show-ref --quiet refs/heads/main; then
+      default_branch="main"
+  elif git show-ref --quiet refs/heads/master; then
+      default_branch="master"
+  else
+      echo "Neither 'main' nor 'master' branch found."
+      return 1
+  fi
+
+  echo "Branch | Commits not on '$default_branch'"
+  echo "------------------------------"
+
+  # Get the list of all local branches and handle each line individually
+  git for-each-ref --format='%(refname:short)' refs/heads/ | while read -r branch; do
+      if [ "$branch" != "$default_branch" ]; then
+          # Count commits on the branch that are not in the default branch
+          commit_count=$(git rev-list --count "$branch" --not "$default_branch")
+          echo "$branch | $commit_count"
+      fi
+  done
+}
+
+
 docker-rm-1h() {
     docker ps -a --filter 'status=exited' --format '{{.ID}} {{.Status}}' | awk '/Exited.*(1 hour ago|60 minutes ago|59 minutes ago|58 minutes ago|57 minutes ago|56 minutes ago|55 minutes ago|54 minutes ago|53 minutes ago|52 minutes ago|51 minutes ago|50 minutes ago|49 minutes ago|48 minutes ago|47 minutes ago|46 minutes ago|45 minutes ago|44 minutes ago|43 minutes ago|42 minutes ago|41 minutes ago|40 minutes ago|39 minutes ago|38 minutes ago|37 minutes ago|36 minutes ago|35 minutes ago|34 minutes ago|33 minutes ago|32 minutes ago|31 minutes ago|30 minutes ago|29 minutes ago|28 minutes ago|27 minutes ago|26 minutes ago|25 minutes ago|24 minutes ago|23 minutes ago|22 minutes ago|21 minutes ago|20 minutes ago|19 minutes ago|18 minutes ago|17 minutes ago|16 minutes ago|15 minutes ago|14 minutes ago|13 minutes ago|12 minutes ago|11 minutes ago|10 minutes ago|9 minutes ago|8 minutes ago|7 minutes ago|6 minutes ago|5 minutes ago|4 minutes ago|3 minutes ago|2 minutes ago|1 minutes ago|less than a minute ago)/{print $1}' | xargs docker rm
 }
 
+docker-rm-24h() {
+    docker ps -a --filter 'status=exited' --format '{{.ID}} {{.Status}}' | \
+    awk '/Exited.*(hour|minute|less than a minute)/{print $1}' | \
+    xargs -r docker rm
+}
+
+docker-rmi-24h() {
+    docker images --filter "dangling=true" --format '{{.ID}} {{.CreatedSince}}' | \
+    awk '/(hours|minutes|less than a minute)/ {print $1}' | \
+    xargs -r docker rmi
+}
 
 catdir() {
   # Check if a directory path is provided as an argument

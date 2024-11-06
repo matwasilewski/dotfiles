@@ -20,5 +20,5 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 export TZ=UTC
 
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
-export PYSPARK_PYTHON=".venv/bin/python"
+export PYSPARK_PYTHON="/Users/mpw/Code/matrix/pipelines/matrix/.venv/bin/python"
 
