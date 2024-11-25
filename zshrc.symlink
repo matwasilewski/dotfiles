@@ -44,3 +44,16 @@ fi
 fpath+=~/.zfunc; autoload -Uz compinit; compinit
 
 zstyle ':completion:*' menu select
+
+
+# Auto-activate virtual environment when entering a directory
+function auto_activate_venv() {
+    if [ -e ".venv/bin/activate" ]; then
+        source .venv/bin/activate
+    fi
+}
+
+# Call auto_activate_venv when changing directories
+cd() {
+    builtin cd "$@" && auto_activate_venv
+}
