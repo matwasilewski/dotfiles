@@ -265,3 +265,52 @@ catdir() {
   # Start the process
   _print_files "$directory"
 }
+
+clip-branch() {
+  local FILE_PATH="$1"
+  local BRANCH="${2:-main}"
+
+  if [[ -z "$FILE_PATH" ]]; then
+    echo "Error: File path is required." >&2
+    return 1
+  fi
+
+  # Resolve the file path relative to the Git repository root
+  local REPO_ROOT
+  REPO_ROOT=$(git rev-parse --show-toplevel)
+  if [[ $? -ne 0 ]]; then
+    echo "Error: Not a git repository." >&2
+    return 1
+  fi
+
+  local ABS_FILE_PATH
+  local ABS_REPO_ROOT
+  ABS_FILE_PATH=$(readlink -f "$FILE_PATH")
+  ABS_REPO_ROOT=$(readlink -f "$REPO_ROOT")
+
+  local FULL_PATH
+  FULL_PATH="${ABS_FILE_PATH#$ABS_REPO_ROOT/}"  # Strip the repo root from the absolute path
+
+  if [[ -z "$FULL_PATH" ]]; then
+    echo "Error: Unable to resolve file path '$FILE_PATH' relative to the repository root." >&2
+    return 1
+  fi
+
+  if git show "$BRANCH:$FULL_PATH" > /dev/null 2>&1; then
+    git show "$BRANCH:$FULL_PATH" | pbcopy
+    echo "Contents of '$FULL_PATH' copied to clipboard from branch '$BRANCH'."
+  else
+    # Check if the file was moved
+    local MOVED_FILE
+    MOVED_FILE=$(git log --name-status -- "$FULL_PATH" | grep '^R' | awk '{print $3}' | head -n 1)
+
+    if [[ -n "$MOVED_FILE" ]]; then
+      echo "File '$FILE_PATH' was moved to '$MOVED_FILE' but is not present on branch '$BRANCH'."
+    else
+      echo "Error: File '$FILE_PATH' does not exist on branch '$BRANCH' and no move was detected." >&2
+    fi
+    return 1
+  fi
+}
+
+
