@@ -313,4 +313,15 @@ clip-branch() {
   fi
 }
 
+cursor-diff() {
+  local FILE_PATH="$1"
+  local BRANCH="${2:-main}"
+
+  if [[ -z "$FILE_PATH" ]]; then
+    echo "Error: File path is required." >&2
+    return 1
+  fi
+
+  git difftool -y "$BRANCH" -- "$FILE_PATH"
+}
 
