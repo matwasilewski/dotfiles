@@ -51,3 +51,9 @@
 [user]
 	name = matwasilewski
 	email = mat.p.wasilewski@gmail.com
+
+[diff]
+    tool = cursor
+[difftool "cursor"]
+    cmd = code --wait --diff $LOCAL $REMOTE
+
