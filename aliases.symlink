@@ -14,7 +14,6 @@ alias zrld="source ~/.zshrc"
 
 # --- Applications ---
 
-alias st="sublime"
 alias p-serve="python3 -m http.server 3000"
 alias p-serve-o="python3 -m http.server 3000 && open http://localhost:3000"
 alias venv="python-venv"
@@ -25,8 +24,3 @@ alias pjn="poetry run jupyter notebook"
 alias gs="git status"
 alias gch="git checkout"
 
-
-# --- Poetry ---
-alias pu="poetry update"
-alias pi="poetry install"
-alias pupi="poetry update && poetry install"
