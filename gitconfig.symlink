@@ -48,12 +48,13 @@
         old = red bold
         new = green bold
         whitespace = red reverse
-[user]
-	name = matwasilewski
-	email = mat.p.wasilewski@gmail.com
+# User info should be set in ~/.gitconfig.local
 
 [diff]
     tool = cursor
 [difftool "cursor"]
     cmd = code --wait --diff $LOCAL $REMOTE
 
+[user]
+	name = Mateusz Wasilewski
+	email = Mateusz Wasilewski

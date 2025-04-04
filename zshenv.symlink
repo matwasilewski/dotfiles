@@ -17,8 +17,8 @@ export REQUESTS_CA_BUNDLE="$HOME/.mac-ca-roots"
 
 export PATH="/usr/local/opt/openssl/bin:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
-export PATH="$HOME/.rye/env"
+export PATH="$HOME/.local/bin:$PATH" # for uv
 export TZ=UTC
 
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
-export PYSPARK_PYTHON="/Users/mpw/Code/matrix/pipelines/matrix/.venv/bin/python"
+# Set PYSPARK_PYTHON in .zshenv_local if needed
