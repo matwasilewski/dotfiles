@@ -76,24 +76,24 @@ git-push-existing-repo()
 python-lint()
 {
   if command -v uv &> /dev/null; then
-    uv run black --line-length 79 -S .
+    uv run black --line-length 120 -S .
     uv run flakeheaven lint
-    uv run isort -w 79 --profile=black .
+    uv run isort -w 120 --profile=black .
     uv run mypy .
   else
     echo "uv not found, using poetry instead"
-    poetry run black --line-length 79 -S .
+    poetry run black --line-length 120 -S .
     poetry run flakeheaven lint
-    poetry run isort -w 79 --profile=black .
+    poetry run isort -w 120 --profile=black .
     poetry run mypy .
   fi
 }
 
 poetry@1.4-lint()
 {
-  poetry@1.4 run black --line-length 79 -S .
+  poetry@1.4 run black --line-length 120 -S .
   poetry@1.4 run flakeheaven lint
-  poetry@1.4 run isort -w 79 --profile=black .
+  poetry@1.4 run isort -w 120 --profile=black .
   poetry@1.4 run mypy .
 }
 

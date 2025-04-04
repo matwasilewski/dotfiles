@@ -9,7 +9,7 @@
 
 ## Code Style
 - Python:
-  - Line length: 79 characters
+  - Line length: 120 characters
   - Use Black formatter (skip string normalization)
   - Apply isort with black profile
   - Type annotations required and checked with mypy
