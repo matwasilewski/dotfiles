@@ -1,42 +1,76 @@
-# dotfiles
+# Dotfiles
 
-Running [**oh-my-zsh**](https://github.com/robbyrussell/oh-my-zsh) with [**Agnoster*](https://github.com/agnoster/agnoster-zsh-theme). 
-Inspired by [**Holman's dotfiles**](https://github.com/holman/dotfiles) and using his script for creating symlinks to .symlink files.
+A personal dotfiles configuration running [**oh-my-zsh**](https://github.com/robbyrussell/oh-my-zsh) with [**PowerLevel10k**](https://github.com/romkatv/powerlevel10k) theme. Inspired by [**Holman's dotfiles**](https://github.com/holman/dotfiles).
+
+## Features
+
+* Automatic installation of oh-my-zsh, plugins, and PowerLevel10k theme
+* Symlinks all `.symlink` files to your home directory
+* Installs essential dependencies (Homebrew, git, wget)
+* Sets up useful aliases and functions for daily development work
+* Configures git with your credentials
+* Creates local configuration files for custom settings
 
 ## Files
 
-* `aliases.symlink` - All my own aliases, all git-aliases is supplied by [`oh-my-zsh/wiki/git`](https://github.com/robbyrussell/oh-my-zsh/wiki/Plugin:git)
-* `functions.symlink` - bash-functions, called by aliases
-* `vimrc.symlink` - My [`vim`](https://en.wikipedia.org/wiki/Vim_(text_editor)) configuration.
-* `zshenv.symlink` - All environment variables exported here.
-* `zshrc.symlink` - Most of the `zsh`-config, sourcing `.aliases` and `.functions`
+* `aliases.symlink` - Custom aliases (git-aliases provided by [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh/wiki/Plugin:git))
+* `functions.symlink` - Bash/zsh functions, called by aliases
+* `terraform_functions.symlink` - Terraform specific helper functions
+* `vimrc.symlink` - Vim configuration
+* `zshenv.symlink` - Environment variables
+* `zshrc.symlink` - ZSH configuration, sources aliases and functions
+* `gitconfig.symlink` - Git configuration with Cursor as difftool
 
 ## Installation
 
-If you are on _Windows 10_ I recommend installing [bash on Windows/WSL](https://msdn.microsoft.com/en-us/commandline/wsl/about) and using `bash` through either [Hyper](https://github.com/zeit/hyper) or [cmder](http://cmder.net/). Through `bash` you can install `zsh` and run this config.
+### Prerequisites
+* On macOS: Xcode Command Line Tools (`xcode-select --install`)
+* On Windows: [WSL](https://learn.microsoft.com/en-us/windows/wsl/install) with Ubuntu
 
-1 . Install `zsh` according to these instructions: [**installing zsh**](https://github.com/robbyrussell/oh-my-zsh/wiki/Installing-ZSH)
+### Quick Start
 
-2 . Run ./bootstrap.sh script.
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/USERNAME/dotfiles.git ~/.dotfiles
+   cd ~/.dotfiles
+   ```
 
-3. Run the SystemSetup from my another repo to install some of the missing plugins and dependencies - this should be in the future moved to this repo to make it completely independent. Alternatively, you can install them manually.
- 
-4 . Reload the `.zshrc` by running. Everytime you make a change in `.zshrc` you have to _source_ the file so it reloads. This can be done with either `.` or `source`:
+2. Run the bootstrap script to install everything:
+   ```bash
+   ./bootstrap.sh
+   ```
+   
+   This script will:
+   - Install dependencies (Homebrew, git, wget)
+   - Install oh-my-zsh and plugins
+   - Install PowerLevel10k theme
+   - Symlink dotfiles to your home directory
+   - Create local configuration files
 
-```bash
-. ~/.zshrc
-```
+3. Configure macOS settings (optional):
+   ```bash
+   ./macbook_setup.sh
+   ```
 
-## Extra 
+4. Restart your terminal or reload the configuration:
+   ```bash
+   source ~/.zshrc
+   ```
 
-##### Merge title bar
+## Customization
 
-To merge the title bar with the background, just change the `Tab Color` to the same as the background color:
+Create and edit these files for local customization (automatically created during installation):
+* `~/.zshenv_local` - Local environment variables
+* `~/.local-functions` - Local functions
 
-![Tab Color](https://i.imgur.com/yqe8Z5Y.png)
+## Utilities
 
-##### Padding
+* `python_tools/fixture_extract.py` - Extract pytest fixtures from Python files
+* `intellij_scripts/` - Helper scripts for IntelliJ IDEA
 
-I have added padding to all sides which you can do under `Advanced` in settings. Just search for `margin` and change `Height of top and botton margins in terminal spaces` and `Width of left and right margins in terminal spaces`
+## Terminal Configuration
 
-![Padding](https://i.imgur.com/ywslqBg.png)
+For the best experience:
+1. Install a [Nerd Font](https://www.nerdfonts.com/) for PowerLevel10k
+2. Match your terminal's tab color with the background color
+3. Add padding to all sides under terminal settings
