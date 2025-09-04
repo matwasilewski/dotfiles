@@ -1,0 +1,224 @@
+// Place your key bindings in this file to override the defaults
+[
+    {
+        "key": "cmd+b",
+        "command": "-workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "cmd+b",
+        "command": "editor.action.revealDefinition",
+        "when": "editorHasDefinitionProvider && editorTextFocus"
+    },
+    {
+        "key": "f12",
+        "command": "-editor.action.revealDefinition",
+        "when": "editorHasDefinitionProvider && editorTextFocus"
+    },
+    {
+        "key": "shift+f6",
+        "command": "editor.action.changeAll",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "cmd+f2",
+        "command": "-editor.action.changeAll",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "shift+f6",
+        "command": "-workbench.action.focusPreviousPart"
+    },
+    {
+        "key": "cmd+i",
+        "command": "workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "cmd+i",
+        "command": "-inlineChat.start",
+        "when": "editorFocus && inlineChatHasProvider && !editorReadonly"
+    },
+    {
+        "key": "cmd+i",
+        "command": "-workbench.action.terminal.chat.start",
+        "when": "terminalChatAgentRegistered && terminalFocusInAny && terminalHasBeenCreated || terminalChatAgentRegistered && terminalFocusInAny && terminalProcessSupported"
+    },
+    {
+        "key": "cmd+i",
+        "command": "-workbench.action.terminal.chat.focusInput",
+        "when": "terminalChatFocus && !inlineChatFocused"
+    },
+    {
+        "key": "cmd+i",
+        "command": "-workbench.action.chat.stopListeningAndSubmit",
+        "when": "inChatInput && voiceChatInProgress && scopedVoiceChatInProgress == 'editor' || inChatInput && voiceChatInProgress && scopedVoiceChatInProgress == 'inline' || inChatInput && voiceChatInProgress && scopedVoiceChatInProgress == 'quick' || inChatInput && voiceChatInProgress && scopedVoiceChatInProgress == 'terminal' || inChatInput && voiceChatInProgress && scopedVoiceChatInProgress == 'view' || inlineChatFocused && voiceChatInProgress && scopedVoiceChatInProgress == 'editor' || inlineChatFocused && voiceChatInProgress && scopedVoiceChatInProgress == 'inline' || inlineChatFocused && voiceChatInProgress && scopedVoiceChatInProgress == 'quick' || inlineChatFocused && voiceChatInProgress && scopedVoiceChatInProgress == 'terminal' || inlineChatFocused && voiceChatInProgress && scopedVoiceChatInProgress == 'view'"
+    },
+    {
+        "key": "cmd+i",
+        "command": "-workbench.action.chat.startVoiceChat",
+        "when": "chatIsEnabled && hasSpeechProvider && inChatInput && !chatSessionRequestInProgress && !editorFocus && !notebookEditorFocused && !scopedVoiceChatGettingReady && !speechToTextInProgress && !terminalChatActiveRequest || chatIsEnabled && hasSpeechProvider && inlineChatFocused && !chatSessionRequestInProgress && !editorFocus && !notebookEditorFocused && !scopedVoiceChatGettingReady && !speechToTextInProgress && !terminalChatActiveRequest"
+    },
+    {
+        "key": "cmd+i",
+        "command": "-editor.action.triggerSuggest",
+        "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly && !suggestWidgetVisible"
+    },
+    {
+        "key": "cmd+i",
+        "command": "-composer.startComposerPrompt",
+        "when": "composerIsEnabled"
+    },
+    {
+        "key": "cmd+i",
+        "command": "-focusSuggestion",
+        "when": "suggestWidgetVisible && textInputFocus && !suggestWidgetHasFocusedSuggestion"
+    },
+    {
+        "key": "cmd+l",
+        "command": "-workbench.action.gotoLine"
+    },
+    {
+        "key": "f2",
+        "command": "editor.action.rename",
+        "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "shift+f6",
+        "command": "-editor.action.rename",
+        "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "f2",
+        "command": "-editor.action.marker.next",
+        "when": "editorFocus"
+    },
+    {
+        "key": "cmd+2",
+        "command": "-workbench.action.focusSecondEditorGroup"
+    },
+    {
+        "key": "cmd+2",
+        "command": "workbench.view.search",
+        "when": "workbench.view.search.active && !searchViewletVisible"
+    },
+    {
+        "key": "cmd+3",
+        "command": "-workbench.view.search",
+        "when": "workbench.view.search.active && !searchViewletVisible"
+    },
+    {
+        "key": "cmd+3",
+        "command": "-workbench.action.toggleSidebarVisibility",
+        "when": "searchViewletVisible"
+    },
+    {
+        "key": "cmd+3",
+        "command": "-workbench.action.focusThirdEditorGroup"
+    },
+    {
+        "key": "cmd+3",
+        "command": "workbench.view.scm",
+        "when": "workbench.scm.active && activeViewlet != 'workbench.view.scm'"
+    },
+    {
+        "key": "cmd+9",
+        "command": "-workbench.view.scm",
+        "when": "workbench.scm.active && activeViewlet != 'workbench.view.scm'"
+    },
+    {
+        "key": "cmd+4",
+        "command": "workbench.view.debug",
+        "when": "viewContainer.workbench.view.debug.enabled && activeViewlet != 'workbench.view.debug'"
+    },
+    {
+        "key": "cmd+5",
+        "command": "-workbench.view.debug",
+        "when": "viewContainer.workbench.view.debug.enabled && activeViewlet != 'workbench.view.debug'"
+    },
+    {
+        "key": "cmd+5",
+        "command": "-workbench.action.focusFifthEditorGroup"
+    },
+    {
+        "key": "cmd+5",
+        "command": "workbench.view.extension.test"
+    },
+    {
+        "key": "cmd+r cmd+6",
+        "command": "-editor.foldLevel6",
+        "when": "editorTextFocus && foldingEnabled"
+    },
+    {
+        "key": "cmd+6",
+        "command": "-workbench.action.focusSixthEditorGroup"
+    },
+    {
+        "key": "cmd+'",
+        "command": "workbench.action.toggleAuxiliaryBar"
+    },
+    {
+        "key": "alt+cmd+b",
+        "command": "-workbench.action.toggleAuxiliaryBar"
+    },
+    {
+        "key": "alt+cmd+5",
+        "command": "python.configureTests"
+    },
+    {
+        "key": "alt+cmd+r",
+        "command": "testing.reRunLastRun"
+    },
+    {
+        "key": "cmd+; l",
+        "command": "-testing.reRunLastRun"
+    },
+    {
+        "key": "alt+cmd+f",
+        "command": "testing.reRunFailTests"
+    },
+    {
+        "key": "cmd+; e",
+        "command": "-testing.reRunFailTests"
+    },
+    {
+        "key": "cmd+p",
+        "command": "-expandLineSelection",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "cmd+p",
+        "command": "-workbench.action.quickOpenNavigateNextInFilePicker",
+        "when": "inFilesPicker && inQuickOpen"
+    },
+    {
+        "key": "alt+cmd+p",
+        "command": "editor.action.triggerParameterHints",
+        "when": "editorHasSignatureHelpProvider && editorTextFocus"
+    },
+    {
+        "key": "cmd+p",
+        "command": "-editor.action.triggerParameterHints",
+        "when": "editorHasSignatureHelpProvider && editorTextFocus"
+    },
+    {
+        "key": "cmd+6",
+        "command": "workbench.view.extension.gitlens"
+    },
+    {
+        "key": "cmd+l",
+        "command": "composerMode.agent"
+    },
+    {
+        "key": "cmd+e",
+        "command": "composerMode.background"
+    },
+    {
+        "key": "cmd+l",
+        "command": "composer.startComposerPrompt",
+        "when": "cursor.appLayout != 'agent'"
+    },
+    {
+        "key": "cmd+i",
+        "command": "-composer.startComposerPrompt",
+        "when": "cursor.appLayout != 'agent'"
+    }
+]

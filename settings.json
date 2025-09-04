@@ -1,0 +1,19 @@
+{
+    "window.commandCenter": 1,
+    "files.autoSave": "afterDelay",
+    "[python]": {
+        "diffEditor.ignoreTrimWhitespace": false,
+        "editor.formatOnType": true,
+        "editor.wordBasedSuggestions": "off"
+    },
+    "makefile.configureOnOpen": true,
+    "editor.formatOnSave": true,
+    "python.testing.pytestEnabled": true,
+    "python.testing.pytestPath": ".venv/bin/pytest",
+    "window.newWindowProfile": "Default",
+    "jupyter.askForKernelRestart": false,
+    "hediet.vscode-drawio.resizeImages": null,
+    "workbench.colorTheme": "Cursor Dark Midnight",
+    "jupyter.interactiveWindow.creationMode": "perFile",
+    "git.confirmSync": false
+}
