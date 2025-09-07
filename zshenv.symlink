@@ -4,6 +4,7 @@ skip_global_compinit=1
 export ZSH=$HOME/.oh-my-zsh
 export VISUAL=vim
 export EDITOR="$VISUAL"
+export JAVA_HOME="/opt/homebrew/Cellar/openjdk@17/17.0.16/libexec/openjdk.jdk/Contents/Home"
 
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
@@ -18,7 +19,7 @@ export REQUESTS_CA_BUNDLE="$HOME/.mac-ca-roots"
 export PATH="/usr/local/opt/openssl/bin:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH" # for uv
-export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
+export PATH="$JAVA_HOME/bin:$PATH"
 
 export TZ=UTC
 
