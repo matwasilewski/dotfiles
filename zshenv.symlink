@@ -18,6 +18,8 @@ export REQUESTS_CA_BUNDLE="$HOME/.mac-ca-roots"
 export PATH="/usr/local/opt/openssl/bin:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH" # for uv
+export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
+
 export TZ=UTC
 
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
