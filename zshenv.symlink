@@ -4,24 +4,18 @@ skip_global_compinit=1
 export ZSH=$HOME/.oh-my-zsh
 export VISUAL=vim
 export EDITOR="$VISUAL"
-export JAVA_HOME="/opt/homebrew/Cellar/openjdk@17/17.0.16/libexec/openjdk.jdk/Contents/Home"
+# JAVA_HOME should be set in .zshenv_local if needed
 
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
-export PATH="$HOME/.poetry/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/bin:$PATH"
-export PATH="$HOME/.composer/vendor/bin:$PATH"
 export PATH="$HOME/Opt:$PATH"
 export PATH="$HOME/.pyenv/bin:$PATH"
-export REQUESTS_CA_BUNDLE="$HOME/.mac-ca-roots"
-
 export PATH="/usr/local/opt/openssl/bin:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH" # for uv
-export PATH="$JAVA_HOME/bin:$PATH"
+export REQUESTS_CA_BUNDLE="$HOME/.mac-ca-roots"
 
 export TZ=UTC
 
-export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 # Set PYSPARK_PYTHON in .zshenv_local if needed

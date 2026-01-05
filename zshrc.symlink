@@ -8,31 +8,27 @@ fi
 ZSH_THEME="powerlevel10k/powerlevel10k"
 # --- Plugins
 
-plugins=(git 
-          zsh-syntax-highlighting 
-          zsh-autosuggestions 
+plugins=(git
+          zsh-syntax-highlighting
+          zsh-autosuggestions
           vi-mode
           kubectl
 )
 
-# --- Source 
+# --- Source
 source $ZSH/oh-my-zsh.sh
 source $HOME/.functions
 source $HOME/.local-functions
-source $HOME/.terraform_functions
 source $HOME/.aliases
 source /opt/homebrew/share/zsh-syntax-highlighting
 source /opt/homebrew/share/zsh-autosuggestions
 source $HOME/.zshenv_local
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-# export PATH="$PATH:$HOME/.rvm/bin"
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Load Google Cloud SDK if it exists (path should be set in .zshenv_local)
-if [ -n "$GOOGLE_CLOUD_SDK_PATH" ] && [ -f "$GOOGLE_CLOUD_SDK_PATH/path.zsh.inc" ]; then 
+if [ -n "$GOOGLE_CLOUD_SDK_PATH" ] && [ -f "$GOOGLE_CLOUD_SDK_PATH/path.zsh.inc" ]; then
   source "$GOOGLE_CLOUD_SDK_PATH/path.zsh.inc"
 fi
 
@@ -40,17 +36,9 @@ if [ -n "$GOOGLE_CLOUD_SDK_PATH" ] && [ -f "$GOOGLE_CLOUD_SDK_PATH/completion.zs
   source "$GOOGLE_CLOUD_SDK_PATH/completion.zsh.inc"
 fi
 
-# Add MySQL to path if installed
-if [ -d "/opt/homebrew/opt/mysql@5.7/bin" ]; then
-  export PATH="/opt/homebrew/opt/mysql@5.7/bin:$PATH"
-fi
-
-
-
 fpath+=~/.zfunc; autoload -Uz compinit; compinit
 
 zstyle ':completion:*' menu select
-
 
 # Auto-activate virtual environment when entering a directory
 function auto_activate_venv() {

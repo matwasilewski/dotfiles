@@ -1,133 +1,40 @@
-python-http(){
-  chrome http://localhost:8000
-  python3 -m http.server 8000
-}
+# --- Network & Process ---
 
-xcat(){
-	cat $1 | xclip -selection clipboard
-}
-
-p8(){
+p8() {
   gping 8.8.8.8
 }
 
-xpwd(){
-  pwd | xclip -selection clipboard
+ports() {
+  lsof -i -P -n | grep LISTEN
 }
 
-xfile(){
-  readlink -f $1 | xclip -selection clipboard 
+port() {
+  lsof -i :"$1"
 }
 
-python-venv(){
-  python3 -m venv venv && . venv/bin/activate && pip install -U pip setuptools wheels &> /dev/null
+killport() {
+  lsof -ti :"$1" | xargs kill -9 2>/dev/null && echo "Killed process on port $1" || echo "No process on port $1"
 }
 
-pgres(){
-  sudo su - postgres
+psg() {
+  ps aux | grep -v grep | grep -i "$1"
 }
 
-gcloud-current-project(){
+# --- Python ---
+
+python-venv() {
+  python3 -m venv .venv && . .venv/bin/activate && pip install -U pip setuptools wheel &> /dev/null
+  echo "Created and activated .venv"
+}
+
+# --- GCloud ---
+
+gcloud-current-project() {
   gcloud config list --format 'value(core.project)' 2>/dev/null
 }
 
-gcloud-current-account(){
+gcloud-current-account() {
   gcloud config list --format 'value(core.account)' 2>/dev/null
-}
-
-set-executable(){
-  sudo chmod uog+x $1
-}
-
-pupi(){
-  poetry update && poetry install
-}
-
-pipb(){
-  poetry install && poetry build 
-}
-
-
-git-fix-author(){
-  # Customize these values in your .local-functions file
-  WRONG_EMAIL=${GIT_FIX_WRONG_EMAIL:-"wrong@example.com"}
-  NEW_NAME=${GIT_FIX_NEW_NAME:-"Your Name"}
-  NEW_EMAIL=${GIT_FIX_NEW_EMAIL:-"correct@example.com"}
-
-  if [ "$GIT_COMMITTER_EMAIL" = "$WRONG_EMAIL" ]
-  then
-      export GIT_COMMITTER_NAME="$NEW_NAME"
-      export GIT_COMMITTER_EMAIL="$NEW_EMAIL"
-  fi
-  if [ "$GIT_AUTHOR_EMAIL" = "$WRONG_EMAIL" ]
-  then
-      export GIT_AUTHOR_NAME="$NEW_NAME"
-      export GIT_AUTHOR_EMAIL="$NEW_EMAIL"
-  fi
-}
-
-git-push-existing-repo()
-{
-  git remote add origin $1
-  git branch -M main
-  git push -u origin main
-}
-
-python-lint()
-{
-  if command -v uv &> /dev/null; then
-    uv run black --line-length 120 -S .
-    uv run flakeheaven lint
-    uv run isort -w 120 --profile=black .
-    uv run mypy .
-  else
-    echo "uv not found, using poetry instead"
-    poetry run black --line-length 120 -S .
-    poetry run flakeheaven lint
-    poetry run isort -w 120 --profile=black .
-    poetry run mypy .
-  fi
-}
-
-poetry@1.4-lint()
-{
-  poetry@1.4 run black --line-length 120 -S .
-  poetry@1.4 run flakeheaven lint
-  poetry@1.4 run isort -w 120 --profile=black .
-  poetry@1.4 run mypy .
-}
-
-ports()
-{
-  sudo lsof -i -P -n | grep LISTEN
-}
-
-dcu()
-{
-  if [ "$1" = "--rebuild" ]
-  then
-    docker compose up --build --force-recreate --no-deps
-  elif [ ! -z "$1" ]
-  then
-    echo "$1 not a correct argument; pass --rebuild or nothing"
-  else
-    docker compose up 
-  fi
-}
-
-pvd()
-{
-  pyenv virtualenv-delete -f $1 
-}
-
-
-bats() {
-    BATS_RUN_SKIPPED=true command bats *.bats
-}
-
-
-poetry-flakeheaven-plugins-install() {
-  poetry add --group dev flake8-bugbear flake8-builtins flake8-comprehensions darglint flake8-docstrings flake8-eradicate flake8-isort flake8-mutable flake8-pytest-style flake8-spellcheck pep8-naming flake8-quotes flake8-commas
 }
 
 gauth() {
@@ -138,134 +45,35 @@ gauth-docker() {
   gcloud auth configure-docker europe-docker.pkg.dev
 }
 
-git-pull-recursive() {
-  find . -type d -name ".git" -exec sh -c '
-      dir=$(dirname "{}")
-      echo "Processing directory: $dir"
-      branch=$(git -C "$dir" symbolic-ref --short HEAD)
-      if [ "$branch" != "main" ]; then
-          git -C "$dir" checkout main || { echo "Failed to checkout main in $dir"; exit 1; }
-      fi
-      git -C "$dir" pull
-  ' \;
+gcr-logs() {
+  local service="${1:-evidence-api-dev}"
+  local project="${2:-ec-evidence-dev}"
+  local region="${3:-us-central1}"
+  gcloud beta run services logs tail "$service" --project="$project" --region "$region"
 }
 
-git-fetch-recursive() {
-  find . -type d -name ".git" -exec sh -c '
-      dir=$(dirname "{}")
-      echo "Processing directory: $dir"
-      branch=$(git -C "$dir" symbolic-ref --short HEAD)
-      if [ "$branch" != "main" ]; then
-          git -C "$dir" checkout main || { echo "Failed to checkout main in $dir"; exit 1; }
-      fi
-      git -C "$dir" fetch 
-  ' \;
-}
-
-git-switch-recursive() {
-    new_branch="$1"
-
-    echo "New branch name $new_branch"
-    if [ -z "$new_branch" ]; then
-        echo "Error: No branch name provided."
-        return 1
-    fi
-    
-    find . -type d -name ".git" -exec sh -c '
-        dir=$(dirname "{}")
-        echo "Processing directory: $dir"
-        
-        if git -C "$dir" rev-parse --verify --quiet "$1"; then
-            echo "Branch $1 already exists in $dir"
-            git -C "$dir" checkout "$1" || { echo "Failed to switch to existing branch in $dir"; exit 1; }
-        else
-            git -C "$dir" checkout -b "$1" || { echo "Failed to create new branch in $dir"; exit 1; }
-        fi
-    ' _ "$new_branch" \;
-}
-
-git-branch-latest() {
-  git for-each-ref --sort=-committerdate --format='%(committerdate:short) %(authorname) %(refname:short) %(subject)' refs/heads/
-}
-
-git-commits-not-on-main() {
-  # Ensure the script is run inside a Git repository
-  if ! git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
-      echo "This script must be run inside a Git repository."
-      return 1
-  fi
-
-  # Detect the default branch (either 'main' or 'master')
-  if git show-ref --quiet refs/heads/main; then
-      default_branch="main"
-  elif git show-ref --quiet refs/heads/master; then
-      default_branch="master"
-  else
-      echo "Neither 'main' nor 'master' branch found."
-      return 1
-  fi
-
-  echo "Branch | Commits not on '$default_branch'"
-  echo "------------------------------"
-
-  # Get the list of all local branches and handle each line individually
-  git for-each-ref --format='%(refname:short)' refs/heads/ | while read -r branch; do
-      if [ "$branch" != "$default_branch" ]; then
-          # Count commits on the branch that are not in the default branch
-          commit_count=$(git rev-list --count "$branch" --not "$default_branch")
-          echo "$branch | $commit_count"
-      fi
-  done
-}
-
+# --- Docker Cleanup ---
 
 docker-rm-1h() {
-    # Remove containers that exited within the last hour
-    docker ps -a --filter 'status=exited' --format '{{.ID}} {{.Status}}' | 
-    awk '/Exited.*([0-9]+ minutes? ago|less than a minute ago)/{print $1}' | 
-    xargs -r docker rm
+  # Remove containers that exited within the last hour
+  docker ps -a --filter 'status=exited' --format '{{.ID}} {{.Status}}' |
+  awk '/Exited.*([0-9]+ minutes? ago|less than a minute ago)/{print $1}' |
+  xargs -r docker rm
 }
 
 docker-rm-24h() {
-    docker ps -a --filter 'status=exited' --format '{{.ID}} {{.Status}}' | \
-    awk '/Exited.*(hour|minute|less than a minute)/{print $1}' | \
-    xargs -r docker rm
+  docker ps -a --filter 'status=exited' --format '{{.ID}} {{.Status}}' |
+  awk '/Exited.*(hour|minute|less than a minute)/{print $1}' |
+  xargs -r docker rm
 }
 
 docker-rmi-24h() {
-    docker images --filter "dangling=true" --format '{{.ID}} {{.CreatedSince}}' | \
-    awk '/(hours|minutes|less than a minute)/ {print $1}' | \
-    xargs -r docker rmi
+  docker images --filter "dangling=true" --format '{{.ID}} {{.CreatedSince}}' |
+  awk '/(hours|minutes|less than a minute)/ {print $1}' |
+  xargs -r docker rmi
 }
 
-catdir() {
-  # Check if a directory path is provided as an argument
-  if [ -z "$1" ]; then
-    echo "Usage: print_directory_contents <directory_path>"
-    return 1
-  fi
-
-  # Function to print the contents of files with separators
-  local directory="$1"
-  
-  _print_files() {
-    for file in "$1"/*; do
-      if [ -d "$file" ]; then
-        # Recursively call the function if it's a directory
-        _print_files "$file"
-      elif [ -f "$file" ]; then
-        # Print file path and content
-        echo "========== FILE: $file =========="
-        cat "$file"
-        echo "=================================="
-        echo
-      fi
-    done
-  }
-
-  # Start the process
-  _print_files "$directory"
-}
+# --- Git Utilities ---
 
 clip-branch() {
   local FILE_PATH="$1"
@@ -276,7 +84,6 @@ clip-branch() {
     return 1
   fi
 
-  # Resolve the file path relative to the Git repository root
   local REPO_ROOT
   REPO_ROOT=$(git rev-parse --show-toplevel)
   if [[ $? -ne 0 ]]; then
@@ -290,7 +97,7 @@ clip-branch() {
   ABS_REPO_ROOT=$(readlink -f "$REPO_ROOT")
 
   local FULL_PATH
-  FULL_PATH="${ABS_FILE_PATH#$ABS_REPO_ROOT/}"  # Strip the repo root from the absolute path
+  FULL_PATH="${ABS_FILE_PATH#$ABS_REPO_ROOT/}"
 
   if [[ -z "$FULL_PATH" ]]; then
     echo "Error: Unable to resolve file path '$FILE_PATH' relative to the repository root." >&2
@@ -301,7 +108,6 @@ clip-branch() {
     git show "$BRANCH:$FULL_PATH" | pbcopy
     echo "Contents of '$FULL_PATH' copied to clipboard from branch '$BRANCH'."
   else
-    # Check if the file was moved
     local MOVED_FILE
     MOVED_FILE=$(git log --name-status -- "$FULL_PATH" | grep '^R' | awk '{print $3}' | head -n 1)
 
@@ -325,4 +131,3 @@ cursor-diff() {
 
   git difftool -y "$BRANCH" -- "$FILE_PATH"
 }
-

@@ -15,11 +15,11 @@ A personal dotfiles configuration running [**oh-my-zsh**](https://github.com/rob
 
 * `aliases.symlink` - Custom aliases (git-aliases provided by [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh/wiki/Plugin:git))
 * `functions.symlink` - Bash/zsh functions, called by aliases
-* `terraform_functions.symlink` - Terraform specific helper functions
 * `vimrc.symlink` - Vim configuration
 * `zshenv.symlink` - Environment variables
 * `zshrc.symlink` - ZSH configuration, sources aliases and functions
 * `gitconfig.symlink` - Git configuration with Cursor as difftool
+* `Brewfile` - Declarative Homebrew package list
 
 ## Installation
 
@@ -41,7 +41,7 @@ A personal dotfiles configuration running [**oh-my-zsh**](https://github.com/rob
    ```
    
    This script will:
-   - Install dependencies (Homebrew, git, wget)
+   - Install dependencies (Homebrew, git)
    - Install oh-my-zsh and plugins
    - Install PowerLevel10k theme
    - Symlink dotfiles to your home directory
@@ -66,7 +66,6 @@ Create and edit these files for local customization (automatically created durin
 ## Utilities
 
 * `python_tools/fixture_extract.py` - Extract pytest fixtures from Python files
-* `intellij_scripts/` - Helper scripts for IntelliJ IDEA
 
 ## Terminal Configuration
 
