@@ -149,9 +149,7 @@ install_oh_my_zsh () {
   if [ ! -d ~/.oh-my-zsh ]
   then
     echo "Installing oh-my-zsh..."
-    wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
-    sh install.sh --unattended
-    rm install.sh
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
   else
     echo "Omitting oh-my-zsh installation - oh-my-zsh already installed!"
   fi
@@ -203,7 +201,13 @@ install_plugins () {
 
 install_theme () {
   info "Downloading theme..."
-  git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+  ZSH_CUSTOM=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}
+  if [ ! -d "$ZSH_CUSTOM/themes/powerlevel10k" ]; then
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$ZSH_CUSTOM/themes/powerlevel10k"
+  else
+    echo "PowerLevel10k already installed, updating..."
+    git -C "$ZSH_CUSTOM/themes/powerlevel10k" pull
+  fi
 }
 
 create_local_files () { 
@@ -226,7 +230,7 @@ install_dependencies () {
   fi
 
   # List of dependencies
-  dependencies=("wget" "git")
+  dependencies=("git")
 
   for dep in "${dependencies[@]}"; do
     if ! command -v $dep &> /dev/null; then
@@ -236,6 +240,12 @@ install_dependencies () {
       echo "$dep is already installed."
     fi
   done
+
+  # Install packages from Brewfile if it exists
+  if [ -f "$DOTFILES_ROOT/Brewfile" ]; then
+    info "Installing packages from Brewfile..."
+    brew bundle --file="$DOTFILES_ROOT/Brewfile"
+  fi
 
   success 'All dependencies installed'
 }
