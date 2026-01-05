@@ -2,4 +2,7 @@ zshenv_local.symlink
 local-functions.symlink
 gitconfig.local.symlink
 .idea/*
-.claude/*
+
+# Claude Code local files (personal overrides, not tracked)
+.claude/settings.local.json
+.claude/CLAUDE.local.md

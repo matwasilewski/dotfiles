@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(./bootstrap.sh)",
+      "Bash(brew bundle:*)",
+      "Bash(source:*)",
+      "Read(**)"
+    ]
+  }
+}

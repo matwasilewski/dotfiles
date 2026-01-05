@@ -1,0 +1,35 @@
+{
+  "model": "opus",
+  "permissions": {
+    "allow": [
+      "Bash(git:*)",
+      "Bash(uv:*)",
+      "Bash(make:*)",
+      "Bash(brew:*)",
+      "Bash(npm run:*)",
+      "Bash(docker ps:*)",
+      "Bash(docker logs:*)",
+      "Bash(pbcopy)",
+      "Bash(pbpaste)",
+      "Bash(which:*)",
+      "Bash(ls:*)",
+      "Bash(cat:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(wc:*)",
+      "Read(~/.zshrc)",
+      "Read(~/.zshenv)",
+      "Read(~/.functions)",
+      "Read(~/.aliases)",
+      "Read(~/Code/dotfiles/**)"
+    ],
+    "deny": [
+      "Read(.env)",
+      "Read(.env.*)",
+      "Read(**/secrets/**)",
+      "Read(**/.secrets/**)",
+      "Read(**/credentials*)",
+      "Bash(rm -rf /)"
+    ]
+  }
+}

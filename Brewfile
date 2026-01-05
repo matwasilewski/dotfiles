@@ -14,6 +14,7 @@ brew "diff-so-fancy"  # Better git diffs
 
 # Development tools
 brew "uv"  # Python package manager
+brew "ruff"  # Python linter and formatter
 
 # Optional - uncomment if needed
 # brew "pyenv"  # Python version manager

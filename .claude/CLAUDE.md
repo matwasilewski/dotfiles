@@ -22,11 +22,9 @@
 
 ## Code Style
 - Python:
-  - Line length: 120 characters
-  - Use Black formatter (skip string normalization)
-  - Apply isort with black profile
+  - Line length: 79 characters
+  - Use Ruff for formatting and linting
   - Type annotations required and checked with mypy
-  - Follow flake8 conventions (plugins: bugbear, docstrings, pytest-style)
 - Shell scripts:
   - Use meaningful function names with underscore_case
   - Document function purpose with comments

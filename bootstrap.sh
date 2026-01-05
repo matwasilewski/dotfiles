@@ -210,14 +210,44 @@ install_theme () {
   fi
 }
 
-create_local_files () { 
+create_local_files () {
   if [ ! -f "$HOME/.zshenv_local" ]; then
     touch "$HOME/.zshenv_local"
-  fi 
+  fi
   if [ ! -f "$HOME/.local-functions" ]; then
     touch "$HOME/.local-functions"
-  fi 
+  fi
+}
 
+install_claude_config () {
+  info "Setting up Claude Code configuration..."
+
+  # Create ~/.claude if it doesn't exist
+  mkdir -p "$HOME/.claude/rules"
+
+  # Symlink global CLAUDE.md
+  if [ -f "$DOTFILES_ROOT/claude/CLAUDE.md" ]; then
+    ln -sf "$DOTFILES_ROOT/claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
+    success "linked Claude CLAUDE.md"
+  fi
+
+  # Symlink global settings.json
+  if [ -f "$DOTFILES_ROOT/claude/settings.json" ]; then
+    ln -sf "$DOTFILES_ROOT/claude/settings.json" "$HOME/.claude/settings.json"
+    success "linked Claude settings.json"
+  fi
+
+  # Symlink rules
+  if [ -d "$DOTFILES_ROOT/claude/rules" ]; then
+    for rule in "$DOTFILES_ROOT/claude/rules"/*.md; do
+      if [ -f "$rule" ]; then
+        ln -sf "$rule" "$HOME/.claude/rules/$(basename "$rule")"
+        success "linked rule $(basename "$rule")"
+      fi
+    done
+  fi
+
+  success "Claude Code configuration complete"
 }
 
 install_dependencies () {
@@ -256,5 +286,6 @@ install_dotfiles
 install_plugins
 install_theme
 create_local_files
+install_claude_config
 
 echo '  All installed!'
