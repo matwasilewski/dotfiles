@@ -21,7 +21,9 @@
       "Read(~/.zshenv)",
       "Read(~/.functions)",
       "Read(~/.aliases)",
-      "Read(~/Code/dotfiles/**)"
+      "Read(~/Code/dotfiles/**)",
+      "WebFetch",
+      "WebSearch"
     ],
     "deny": [
       "Read(.env)",
