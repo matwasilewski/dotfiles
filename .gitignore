@@ -3,3 +3,4 @@ local-functions.symlink
 gitconfig.local.symlink
 .idea/*
 .claude/*
+CLAUDE.md
