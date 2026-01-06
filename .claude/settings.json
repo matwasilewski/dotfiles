@@ -4,7 +4,37 @@
       "Bash(./bootstrap.sh)",
       "Bash(brew bundle:*)",
       "Bash(source:*)",
+      "Bash(ls:*)",
+      "Bash(jq:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(wc:*)",
+      "Bash(which:*)",
+      "Bash(type:*)",
+      "Bash(file:*)",
+      "Bash(pwd)",
+      "Bash(tree:*)",
+      "Bash(diff:*)",
+      "Bash(stat:*)",
+      "Bash(du:*)",
+      "Bash(df:*)",
+      "Bash(ps:*)",
+      "Bash(sort:*)",
+      "Bash(uniq:*)",
+      "Bash(tr:*)",
+      "Bash(realpath:*)",
+      "Bash(dirname:*)",
+      "Bash(basename:*)",
+      "Bash(md5:*)",
+      "Bash(shasum:*)",
       "Read(**)"
+    ],
+    "ask": [
+      "Bash(git push:*)",
+      "Bash(git reset:*)",
+      "Bash(docker rm:*)",
+      "Bash(docker stop:*)",
+      "Bash(rm:*)"
     ]
   }
 }
