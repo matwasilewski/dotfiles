@@ -6,3 +6,4 @@ gitconfig.local.symlink
 # Claude Code local files (personal overrides, not tracked)
 .claude/settings.local.json
 .claude/CLAUDE.local.md
+.claude/mcp-private.json
