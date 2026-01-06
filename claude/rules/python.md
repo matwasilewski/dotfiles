@@ -10,37 +10,19 @@ globs: ["**/*.py"]
 - Target Python version: 3.13
 - Use Ruff for formatting and linting (`ruff format`, `ruff check`)
 
-## Ruff Configuration
-
-Standard ruff.lint.extend-select rules:
-- `E`, `W` - pycodestyle errors/warnings
-- `F`, `F401` - Pyflakes, unused imports
-- `I` - isort
-- `B` - bugbear
-- `UP` - pyupgrade
-- `RUF` - Ruff-specific rules
-- `A` - flake8-builtins
-- `C4` - flake8-comprehensions
-- `C90` - mccabe complexity (max 10)
-- `N` - pep8-naming
-- `PT` - flake8-pytest-style
-- `ARG` - flake8-unused-arguments
-- `PTH` - flake8-use-pathlib
-- `ERA` - eradicate (commented code)
-- `COM` - flake8-commas
-- `Q` - flake8-quotes
-- `TD`, `FIX` - todos/fixmes
-
-Common ignores: `E501` (line length handled by formatter), `COM812` (trailing comma), `B008` (function call in default arg)
 
 ## Type Annotations
 
-- All functions require type annotations (`disallow_untyped_defs = true`)
 - Use mypy with `ignore_missing_imports = true`
 - Use `from __future__ import annotations` for forward references
 
 ## Style
 
+- Strive to write pure functions.
+- Follow unix philosophy: write tools (functions) that do one thing well.
+- Only add arguments to functions if a use-case for that parameter is already apparent.
+- Prefer simplicity over covering all edge cases and adding flexibility in CLIs.
+- Be concise in docstrings and comments.
 - Prefer f-strings over .format() or %
 - Use pathlib over os.path
 - Keep mccabe complexity under 10
@@ -48,9 +30,14 @@ Common ignores: `E501` (line length handled by formatter), `COM812` (trailing co
 ## Testing
 
 - Use pytest with pytest-asyncio
+- Prefer test functions over classes
 - Place tests in `tests/` directory
+- Unit tests in `tests/unit/` directory
+- Integration tests in `tests/integration/` directory.
 - Use `asyncio_mode = "auto"`
 - Use fixtures for setup/teardown
+- Avoid mocks and patching unless absolutely necessary. Prefer using integration tests to validate multi-component systems. If doing so, ideally spin up local integration test components via `Makefile`.
+- LLM testing: it's OK to call LLMs in integration tests.
 
 ## Package Management
 
