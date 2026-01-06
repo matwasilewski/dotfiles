@@ -247,6 +247,12 @@ install_claude_config () {
     done
   fi
 
+  # Symlink agents directory
+  if [ -d "$DOTFILES_ROOT/claude/agents" ]; then
+    ln -sfn "$DOTFILES_ROOT/claude/agents" "$HOME/.claude/agents"
+    success "linked Claude agents directory"
+  fi
+
   success "Claude Code configuration complete"
 }
 
