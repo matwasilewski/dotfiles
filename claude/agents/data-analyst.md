@@ -17,3 +17,7 @@ Table: `ec-orchard-prod.drug_list.ec_drug_list_latest` (always prefer latest)
 
 ## Disease List
 Table: `ec-orchard-prod.disease_list.ec_disease_list_latest` (always prefer latest)
+
+
+## Pairs to Review
+

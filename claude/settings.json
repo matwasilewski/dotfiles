@@ -20,7 +20,7 @@
       "Read(~/.zshenv)",
       "Read(~/.functions)",
       "Read(~/.aliases)",
-      "Read(~/Code/dotfiles/**)",
+      "Read(~/Code/**)",
       "WebFetch",
       "WebSearch"
     ],
