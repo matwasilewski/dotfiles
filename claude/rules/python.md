@@ -39,6 +39,11 @@ globs: ["**/*.py"]
 - Avoid mocks and patching unless absolutely necessary. Prefer using integration tests to validate multi-component systems. If doing so, ideally spin up local integration test components via `Makefile`.
 - LLM testing: it's OK to call LLMs in integration tests.
 
+## Asynchronicity
+- When working with concurrent API calls, make code asynchronous. Ask user before commiting to asynchronoous code.
+- When running asychronous code, at chokepoints implement a `semaphore`. Use a global variable to set concurrency limit on the sempahore(s).
+
+
 ## Package Management
 
 - Use uv for dependency management

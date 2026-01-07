@@ -22,6 +22,8 @@
       "Bash(sort:*)",
       "Bash(uniq:*)",
       "Bash(tr:*)",
+      "Bash(find:*)",
+      "Bash(tree:*)",
       "Bash(realpath:*)",
       "Bash(dirname:*)",
       "Bash(basename:*)",
