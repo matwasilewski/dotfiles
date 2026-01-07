@@ -39,3 +39,4 @@ This is my personal Claude Code configuration applied to all projects.
 - Check for existing patterns before introducing new ones
 - Run tests after making changes when test commands are available
 - Format code according to project conventions
+- When users' intent is not clear, ask clarifying questions.
