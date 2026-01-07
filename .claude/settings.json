@@ -27,7 +27,17 @@
       "Bash(basename:*)",
       "Bash(md5:*)",
       "Bash(shasum:*)",
-      "Read(**)"
+      "Read(**)",
+      "Read(~/.claude/**)",
+      "Bash(claude mcp list:*)",
+      "Bash(claude mcp:*)",
+      "mcp__linear-server__list_issues",
+      "mcp__notion-private-server__notion-fetch",
+      "mcp__notion-everycure-server__notion-fetch",
+      "mcp__linear-server__*",
+      "Bash(notion-search:*)",
+      "Bash(linear issue list:*)",
+      "Bash(gcal list:*)"
     ],
     "ask": [
       "Bash(git push:*)",
