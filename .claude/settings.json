@@ -36,13 +36,12 @@
       "mcp__notion-private-server__notion-search",
       "mcp__notion-everycure-server__notion-fetch",
       "mcp__notion-everycure-server__notion-search",
-      "mcp__linear-server__*",
       "Bash(notion-search:*)",
-      "Bash(linear issue list:*)",
       "Bash(gcal list:*)",
       "Bash(nc:*)"
     ],
     "ask": [
+      "mcp__linear-server__update_issue",
       "Bash(git push:*)",
       "Bash(git reset:*)",
       "Bash(docker rm:*)",
