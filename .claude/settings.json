@@ -39,7 +39,8 @@
       "mcp__linear-server__*",
       "Bash(notion-search:*)",
       "Bash(linear issue list:*)",
-      "Bash(gcal list:*)"
+      "Bash(gcal list:*)",
+      "Bash(nc:*)"
     ],
     "ask": [
       "Bash(git push:*)",
