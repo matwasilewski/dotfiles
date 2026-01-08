@@ -7,3 +7,4 @@ gitconfig.local.symlink
 .claude/settings.local.json
 .claude/CLAUDE.local.md
 .claude/mcp-private.json
+user_requests/*
