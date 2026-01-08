@@ -22,7 +22,12 @@
       "Read(~/.aliases)",
       "Read(~/Code/**)",
       "WebFetch",
-      "WebSearch"
+      "WebSearch",
+      "mcp__linear-server__list_issues",
+      "mcp__notion-private-server__notion-fetch",
+      "mcp__notion-private-server__notion-search",
+      "mcp__notion-everycure-server__notion-fetch",
+      "mcp__notion-everycure-server__notion-search"
     ],
     "deny": [
       "Read(.env)",
