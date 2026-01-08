@@ -27,7 +27,9 @@
       "mcp__notion-private-server__notion-fetch",
       "mcp__notion-private-server__notion-search",
       "mcp__notion-everycure-server__notion-fetch",
-      "mcp__notion-everycure-server__notion-search"
+      "mcp__notion-everycure-server__notion-search",
+      "mcp__notion__notion-*",
+      "mcp__notion__notion-*"
     ],
     "deny": [
       "Read(.env)",
