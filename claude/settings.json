@@ -3,6 +3,7 @@
     "allow": [
       "Bash(git:*)",
       "Bash(uv:*)",
+      "Bash(pytest:*)",
       "Bash(make:*)",
       "Bash(brew:*)",
       "Bash(npm run:*)",
@@ -22,7 +23,8 @@
       "Read(~/.aliases)",
       "Read(~/Code/**)",
       "WebFetch",
-      "WebSearch"
+      "WebSearch",
+      "Edit"
     ],
     "deny": [
       "Read(.env)",

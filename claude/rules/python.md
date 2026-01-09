@@ -14,7 +14,6 @@ globs: ["**/*.py"]
 ## Type Annotations
 
 - Use mypy with `ignore_missing_imports = true`
-- Use `from __future__ import annotations` for forward references
 
 ## Style
 
@@ -31,6 +30,7 @@ globs: ["**/*.py"]
 ## Testing
 
 - Use pytest with pytest-asyncio
+- Refer to file-resources relatively to the `test_resources_root` fixture.
 - Prefer test functions over classes
 - Place tests in `tests/` directory
 - Unit tests in `tests/unit/` directory
