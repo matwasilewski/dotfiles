@@ -36,7 +36,7 @@ globs: ["**/*.py"]
 - Unit tests in `tests/unit/` directory
 - Integration tests in `tests/integration/` directory.
 - Use `asyncio_mode = "auto"`
-- Use fixtures for setup/teardown
+- Use fixtures for setup/teardown, and serving more complicated resources
 - Avoid mocks and patching unless absolutely necessary. Prefer using integration tests to validate multi-component systems. If doing so, ideally spin up local integration test components via `Makefile`.
 - LLM testing: it's OK to call LLMs in integration tests.
 
