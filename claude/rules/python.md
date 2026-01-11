@@ -21,6 +21,7 @@ globs: ["**/*.py"]
 
 ## Style
 
+- Don't over-optimize early; extract abstractions and classes only when the need for them is apparent.
 - Prefer failing fast to multiple defensive checks in the code
 - Strive to write pure functions.
 - Follow unix philosophy: write tools (functions) that do one thing well.
