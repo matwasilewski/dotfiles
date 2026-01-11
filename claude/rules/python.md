@@ -19,6 +19,7 @@ globs: ["**/*.py"]
 ## Style
 
 - Use Pydantic for dataclasses
+- Use Typer for CLIs
 - Use tenacity, rather than writing custom retry classes.
 - When using tenacity, prefer using decorators in functions rather than writing custom retry functions.
 - Strive to write pure functions.
