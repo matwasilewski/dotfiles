@@ -19,6 +19,7 @@ globs: ["**/*.py"]
 ## Style
 
 - Use Pydantic for dataclasses
+- Use tenacity, rather than writing custom retry classes.
 - Strive to write pure functions.
 - Follow unix philosophy: write tools (functions) that do one thing well.
 - Only add arguments to functions if a use-case for that parameter is already apparent.
