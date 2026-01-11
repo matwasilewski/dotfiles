@@ -5,6 +5,10 @@ description: Refactors code into cleaner, simpler and more readable structure.
 
 This is a code refactoring skill, which covers many edge-cases important when refactoring code
 
+## Error Handling
+
+Don't clutter code with defensive checks; throw exceptions instead. Lean heavily toward Failing Fast via Exceptions rather than "defensive" coding (like returning error codes or checking for flags).
+
 ## Prefer Pydantic over Dataclass
 
 In my codebases, unless strongly justified to the contrary, prefer pydantic over dataclasses.

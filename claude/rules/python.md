@@ -11,17 +11,17 @@ globs: ["**/*.py"]
 - Use Ruff for formatting and linting (`ruff format`, `ruff check`)
 
 
-## Type Annotations
-
-- Use mypy with `ignore_missing_imports = true`
-- Use `from __future__ import annotations` for forward references
-
-## Style
+## Library Preferences
 
 - Use Pydantic for dataclasses
 - Use Typer for CLIs
 - Use tenacity, rather than writing custom retry classes.
 - When using tenacity, prefer using decorators in functions rather than writing custom retry functions.
+
+
+## Style
+
+- Prefer failing fast to multiple defensive checks in the code
 - Strive to write pure functions.
 - Follow unix philosophy: write tools (functions) that do one thing well.
 - Only add arguments to functions if a use-case for that parameter is already apparent.
