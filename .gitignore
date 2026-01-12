@@ -8,3 +8,4 @@ gitconfig.local.symlink
 .claude/CLAUDE.local.md
 .claude/mcp-private.json
 user_requests/*
+serena/*

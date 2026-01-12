@@ -1,6 +1,4 @@
-# Global Claude Code Configuration
-
-This is my personal Claude Code configuration applied to all projects.
+# Claude Code Configuration
 
 ## Preferences
 
@@ -11,10 +9,9 @@ This is my personal Claude Code configuration applied to all projects.
 ## My Development Environment
 
 - OS: macOS
-- Shell: zsh with oh-my-zsh and PowerLevel10k
+- Shell: zsh
 - Editor: Cursor
 - Python: uv for package management
-- Git: default branch is `main`
 
 ## Coding Principles
 
