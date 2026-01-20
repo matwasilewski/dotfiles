@@ -18,7 +18,6 @@ globs: ["**/*.py"]
 - Use tenacity, rather than writing custom retry classes.
 - When using tenacity, prefer using decorators in functions rather than writing custom retry functions.
 
-
 ## Style
 
 - Don't over-optimize early; extract abstractions and classes only when the need for them is apparent.
@@ -36,6 +35,7 @@ globs: ["**/*.py"]
 ## Testing
 
 - Use pytest with pytest-asyncio
+- Refer to file-resources relatively to the `test_resources_root` fixture.
 - Prefer test functions over classes
 - Place tests in `tests/` directory
 - Unit tests in `tests/unit/` directory

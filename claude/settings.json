@@ -3,6 +3,7 @@
     "allow": [
       "Bash(git:*)",
       "Bash(uv:*)",
+      "Bash(pytest:*)",
       "Bash(make:*)",
       "Bash(brew:*)",
       "Bash(npm run:*)",
@@ -31,6 +32,7 @@
       "Read(~/Code/**)",
       "WebFetch",
       "WebSearch",
+      "Edit",
       "mcp__linear-server__list_issues",
       "mcp__notion-private-server__notion-fetch",
       "mcp__notion-private-server__notion-search",
