@@ -45,6 +45,5 @@
     "defaultMode": "auto"
   },
   "model": "opus",
-  "skipAutoPermissionPrompt": true,
-
+  "skipAutoPermissionPrompt": true
 }
