@@ -41,6 +41,37 @@ gauth() {
   gcloud auth login && gcloud auth application-default login
 }
 
+# Switch active gcloud configuration (e.g. `gconf work`, `gconf personal`).
+# With no argument, lists configurations. `work` is an alias for `default`.
+# Sets GCLOUD_SSH_USER per configuration so `gssh` picks the right login.
+gconf() {
+  local target="${1:-}"
+  if [[ -z "$target" ]]; then
+    gcloud config configurations list
+    return
+  fi
+  case "$target" in
+    work) target="default" ;;
+  esac
+  gcloud config configurations activate "$target" || return
+  case "$target" in
+    personal) export GCLOUD_SSH_USER=mwasilewski ;;
+    *)        unset GCLOUD_SSH_USER ;;
+  esac
+}
+
+# Wrapper around `gcloud compute ssh` that prepends $GCLOUD_SSH_USER when the
+# instance argument has no explicit user. Pass `user@host` to override.
+gssh() {
+  local first="${1:-}"
+  if [[ -n "$GCLOUD_SSH_USER" && -n "$first" && "$first" != *@* && "$first" != -* ]]; then
+    shift
+    gcloud compute ssh "$GCLOUD_SSH_USER@$first" "$@"
+  else
+    gcloud compute ssh "$@"
+  fi
+}
+
 gauth-docker() {
   gcloud auth configure-docker europe-docker.pkg.dev
 }

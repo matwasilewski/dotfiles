@@ -31,6 +31,11 @@ globs: ["**/*.py"]
 - Use pathlib over os.path
 - Keep mccabe complexity under 10
 - If fields of a dictionary are known (ie. they originate from a pydantic model) there is no need to provide a graceful fallback with `.get()` - just querying a dictionary is fine.
+- Use tenacity as you preferred retry library
+
+## LLM Calls
+- When managing LLM calls, use skill: llm-call-architect
+
 
 ## Testing
 

@@ -208,10 +208,6 @@
         "command": "composerMode.agent"
     },
     {
-        "key": "cmd+e",
-        "command": "composerMode.background"
-    },
-    {
         "key": "cmd+l",
         "command": "composer.startComposerPrompt",
         "when": "cursor.appLayout != 'agent'"
@@ -220,5 +216,14 @@
         "key": "cmd+i",
         "command": "-composer.startComposerPrompt",
         "when": "cursor.appLayout != 'agent'"
+    },
+    {
+        "key": "cmd+4",
+        "command": "workbench.view.extension.claude-sidebar"
+    },
+    {
+        "key": "alt+cmd+s",
+        "command": "workbench.action.toggleUnifiedSidebarFromKeyboard",
+        "when": "cursor.agentIdeUnification.enabled == true && !isAuxiliaryWindowFocusedContext"
     }
 ]
