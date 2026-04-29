@@ -13,7 +13,12 @@
     "window.newWindowProfile": "Default",
     "jupyter.askForKernelRestart": false,
     "hediet.vscode-drawio.resizeImages": null,
-    "workbench.colorTheme": "Cursor Dark Midnight",
     "jupyter.interactiveWindow.creationMode": "perFile",
-    "git.confirmSync": false
+    "git.confirmSync": false,
+    "workbench.colorTheme": "Cursor Dark Midnight",
+    "claudeCode.preferredLocation": "panel",
+    "remote.SSH.remotePlatform": {
+        "claudex-light": "linux",
+        "claudex-litsearch": "linux"
+    }
 }
