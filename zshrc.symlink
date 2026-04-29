@@ -51,3 +51,4 @@ function auto_activate_venv() {
 cd() {
     builtin cd "$@" && auto_activate_venv
 }
+export PATH="$HOME/.local/bin:$PATH"
