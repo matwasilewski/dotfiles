@@ -77,9 +77,13 @@ gauth-docker() {
 }
 
 gcr-logs() {
-  local service="${1:-evidence-api-dev}"
-  local project="${2:-ec-evidence-dev}"
+  local service="$1"
+  local project="$2"
   local region="${3:-us-central1}"
+  if [[ -z "$service" || -z "$project" ]]; then
+    echo "Usage: gcr-logs <service> <project> [region]"
+    return 1
+  fi
   gcloud beta run services logs tail "$service" --project="$project" --region "$region"
 }
 

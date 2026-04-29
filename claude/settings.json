@@ -32,16 +32,7 @@
       "Read(~/Code/**)",
       "WebFetch",
       "WebSearch",
-      "Edit",
-      "mcp__linear-server__list_issues",
-      "mcp__notion-private-server__notion-fetch",
-      "mcp__notion-private-server__notion-search",
-      "mcp__notion-everycure-server__notion-fetch",
-      "mcp__notion-everycure-server__notion-search",
-      "mcp__notion__notion-*",
-      "mcp__notion__notion-*",
-      "mcp__plugin_context7_context7__*",
-      "mcp__plugin_serena_serena__*"
+      "Edit"
     ],
     "deny": [
       "Read(.env)",
@@ -50,22 +41,10 @@
       "Read(**/.secrets/**)",
       "Read(**/credentials*)",
       "Bash(rm -rf /)"
-    ]
+    ],
+    "defaultMode": "auto"
   },
-  "enabledPlugins": {
-    "claude-hud@claude-hud": true
-  },
-  "statusLine": {
-    "type": "command",
-    "command": "bash -c '\"/opt/homebrew/bin/node\" \"$(ls -td ~/.claude/plugins/cache/claude-hud/claude-hud/*/ 2>/dev/null | head -1)dist/index.js\"'"
-  },
-  "mcpServers": {
-    "context7": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@upstash/context7-mcp@latest"
-      ]
-    }
-  }
+  "model": "opus",
+  "skipAutoPermissionPrompt": true,
+
 }

@@ -18,24 +18,19 @@ All interactions happen via **Slack**. Follow these guidelines:
 
 ## Resources
 
-### Personal Notion (notion-private-server)
-- **2026 Log - MPW**: `2de5401e-c6a2-805f-8459-df7984fe3b64`
-- **Management**:  The Notion page under which I want you to add new files. `2e25401e-c6a2-80ea-a838-c9c2c6aefc7a`
-- **Habit Tracker**: `collection://6c804253-630f-47b8-85fb-abb5fbb09050`2e25401ec6a280eaa838c9c2c6aefc7a
-
-
-### Work Notion (notion-everycure-server)
-- **2026 Log - Work**: `2d1b57e0-1373-8028-b435-ebff9975aba7`
+Configure the following Notion page IDs and Linear IDs in your Claude memory or local config:
+- **Personal Log**: Notion page ID for your personal log
+- **Management**: Notion page ID for management tasks
+- **Habit Tracker**: Notion collection ID for habit tracking
+- **Work Log**: Notion page ID for your work log
+- **Linear Team ID**: Your Linear team ID
+- **Linear User ID**: Your Linear user ID
 
 ### Workflow for Adding Tasks to Notion
 
 1. Use `mcp__notion__notion-fetch` to get the current page structure
 2. Use `mcp__notion__notion-update-page` with `insert_content_after` to add new content
 3. Follow the existing format (e.g., "January 9th Goals" with `- [ ]` checkboxes, and newlines before the previous task.
-
-### Linear
-- Team: EC Pair Predictions (`6f825a79-94c2-4f2c-b015-7b9eeb1bf596`)
-- User ID: `119dc2e0-d18d-4add-b461-4c5fdb107d17`
 
 ## Log Structure
 
@@ -44,7 +39,7 @@ All interactions happen via **Slack**. Follow these guidelines:
 
 ## General Guidelines
 
-- **Link work tasks to Linear**: Always include ticket titles, not just IDs (e.g., "EC-123: Fix data pipeline bug")
+- **Link work tasks to Linear**: Always include ticket titles, not just IDs (e.g., "PROJ-123: Fix data pipeline bug")
 - **Clarify vague tasks**: If user adds unclear tasks, suggest clearer, actionable alternatives
 - **Stakeholder follow-ups**: Remind user to follow up with key stakeholders when tasks involve them
 - **Capacity check**: If user is overcommitted, call it out and help prioritize
@@ -73,7 +68,7 @@ All interactions happen via **Slack**. Follow these guidelines:
   - Any updates on existing tickets user is watching
 - Fetch today's Work Notion tasks
 - **Flag misalignments**: If Notion mentions work that's not tracked in Linear, or vice versa, point it out
-- Suggest specific actions to align (e.g., "Should we create a Linear ticket for X?" or "EC-123 is done in Linear but still on your Notion list")
+- Suggest specific actions to align (e.g., "Should we create a Linear ticket for X?" or "PROJ-123 is done in Linear but still on your Notion list")
 
 ### 4. Clarify & Prioritize
 - If any tasks are vague or unclear, suggest better wording

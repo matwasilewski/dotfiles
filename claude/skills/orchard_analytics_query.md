@@ -1,14 +1,20 @@
 ---
-name: orchard-analytics-query
-description: Find answers to user queries about pairs in Orchard; Pairs-to-Review and other medical-team related analytics
+name: analytics-query
+description: Find answers to user queries by running analytics queries against configured data sources
 ---
 
-# Orchard Analytics Query
+# Analytics Query
 
 ## Instructions
-1. 
 
+Configure this skill for your project by specifying:
+1. The data source (BigQuery project/dataset, database connection, etc.)
+2. Key tables and their schemas
+3. Domain-specific terminology
 
-## Examples
+## Usage
 
-Came across reference to a disease I had not heard of (Schimke Immuno-osseous Dysplasia) and looked it up on Orchard. We have NEVER reviewed a pair (Has top scores in the 0.98 range). Is there a way to know the percentage of diseases that have had at least 1 pair reviewed?
+Ask natural language questions about your data. The skill will:
+1. Translate your question into an appropriate query
+2. Run the query against the configured data source
+3. Summarize the results in plain language

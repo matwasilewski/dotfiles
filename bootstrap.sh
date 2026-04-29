@@ -219,6 +219,47 @@ create_local_files () {
   fi
 }
 
+install_cursor_config () {
+  info "Setting up Cursor configuration..."
+
+  local cursor_user_dir="$HOME/Library/Application Support/Cursor/User"
+  mkdir -p "$cursor_user_dir"
+
+  if [ -f "$DOTFILES_ROOT/cursor/settings.json" ]; then
+    ln -sf "$DOTFILES_ROOT/cursor/settings.json" "$cursor_user_dir/settings.json"
+    success "linked Cursor settings.json"
+  fi
+
+  if [ -f "$DOTFILES_ROOT/cursor/keybindings.json" ]; then
+    ln -sf "$DOTFILES_ROOT/cursor/keybindings.json" "$cursor_user_dir/keybindings.json"
+    success "linked Cursor keybindings.json"
+  fi
+
+  success "Cursor configuration complete"
+}
+
+install_iterm2_config () {
+  info "Setting up iTerm2 configuration..."
+
+  local iterm2_profiles_dir="$HOME/Library/Application Support/iTerm2/DynamicProfiles"
+  mkdir -p "$iterm2_profiles_dir"
+
+  if [ -f "$DOTFILES_ROOT/iterm2/hotkey-window.json" ]; then
+    ln -sf "$DOTFILES_ROOT/iterm2/hotkey-window.json" "$iterm2_profiles_dir/hotkey-window.json"
+    success "linked iTerm2 hotkey window profile"
+  fi
+
+  # Enable global hotkey (Cmd+Space to toggle iTerm2)
+  defaults write com.googlecode.iterm2 Hotkey -bool true
+  defaults write com.googlecode.iterm2 HotkeyCode -int 49
+  defaults write com.googlecode.iterm2 HotkeyChar -int 32
+  defaults write com.googlecode.iterm2 HotkeyModifiers -int 524288
+  defaults write com.googlecode.iterm2 HotkeyMigratedFromSingleToMulti -bool true
+  success "configured iTerm2 global hotkey"
+
+  success "iTerm2 configuration complete"
+}
+
 install_claude_config () {
   info "Setting up Claude Code configuration..."
 
@@ -292,6 +333,8 @@ install_dotfiles
 install_plugins
 install_theme
 create_local_files
+install_cursor_config
+install_iterm2_config
 install_claude_config
 
 echo '  All installed!'

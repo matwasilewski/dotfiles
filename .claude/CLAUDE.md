@@ -15,7 +15,7 @@
 - `port 8080` - Show what's using a port
 - `killport 8080` - Kill process on port
 - `psg python` - ps aux | grep
-- `gcr-logs [service] [project] [region]` - Cloud Run logs
+- `gcr-logs <service> <project> [region]` - Cloud Run logs
 - `docker-rm-1h` / `docker-rm-24h` - Cleanup exited containers
 - `clip-branch file.py [branch]` - Copy file contents from branch to clipboard
 - `cursor-diff file.py [branch]` - Open diff in Cursor
@@ -36,6 +36,11 @@
 - Use Cursor for difftool
 - Default branch: main
 - User info should be configured in ~/.gitconfig.local
+
+## App Configs
+- `cursor/` - Cursor editor settings and keybindings (symlinked by bootstrap)
+- `iterm2/` - iTerm2 hotkey window dynamic profile (symlinked by bootstrap)
+- `claude/` - Claude Code settings, rules, agents, and skills (symlinked by bootstrap)
 
 ## Configuration
 - Personal settings belong in:
