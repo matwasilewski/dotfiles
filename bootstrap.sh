@@ -2,7 +2,8 @@
 #
 # bootstrap installs things.
 
-cd "$(dirname "$0")/.."
+DOTFILES_DIR="$(cd "$(dirname "$0")" && pwd -P)"
+cd "$DOTFILES_DIR/.."
 DOTFILES_ROOT=$(pwd -P)
 
 set -e
@@ -136,7 +137,7 @@ install_dotfiles () {
 
   local overwrite_all=false backup_all=false skip_all=false
 
-  for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink' -not -path '*.git*')
+  for src in $(find -H "$DOTFILES_DIR" -maxdepth 1 -name '*.symlink' -not -path '*.git*')
   do
     dst="$HOME/.$(basename "${src%.*}")"
     link_file "$src" "$dst"
@@ -225,13 +226,13 @@ install_cursor_config () {
   local cursor_user_dir="$HOME/Library/Application Support/Cursor/User"
   mkdir -p "$cursor_user_dir"
 
-  if [ -f "$DOTFILES_ROOT/cursor/settings.json" ]; then
-    ln -sf "$DOTFILES_ROOT/cursor/settings.json" "$cursor_user_dir/settings.json"
+  if [ -f "$DOTFILES_DIR/cursor/settings.json" ]; then
+    ln -sf "$DOTFILES_DIR/cursor/settings.json" "$cursor_user_dir/settings.json"
     success "linked Cursor settings.json"
   fi
 
-  if [ -f "$DOTFILES_ROOT/cursor/keybindings.json" ]; then
-    ln -sf "$DOTFILES_ROOT/cursor/keybindings.json" "$cursor_user_dir/keybindings.json"
+  if [ -f "$DOTFILES_DIR/cursor/keybindings.json" ]; then
+    ln -sf "$DOTFILES_DIR/cursor/keybindings.json" "$cursor_user_dir/keybindings.json"
     success "linked Cursor keybindings.json"
   fi
 
@@ -244,8 +245,8 @@ install_iterm2_config () {
   local iterm2_profiles_dir="$HOME/Library/Application Support/iTerm2/DynamicProfiles"
   mkdir -p "$iterm2_profiles_dir"
 
-  if [ -f "$DOTFILES_ROOT/iterm2/hotkey-window.json" ]; then
-    ln -sf "$DOTFILES_ROOT/iterm2/hotkey-window.json" "$iterm2_profiles_dir/hotkey-window.json"
+  if [ -f "$DOTFILES_DIR/iterm2/hotkey-window.json" ]; then
+    ln -sf "$DOTFILES_DIR/iterm2/hotkey-window.json" "$iterm2_profiles_dir/hotkey-window.json"
     success "linked iTerm2 hotkey window profile"
   fi
 
@@ -267,20 +268,20 @@ install_claude_config () {
   mkdir -p "$HOME/.claude/rules"
 
   # Symlink global CLAUDE.md
-  if [ -f "$DOTFILES_ROOT/claude/CLAUDE.md" ]; then
-    ln -sf "$DOTFILES_ROOT/claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
+  if [ -f "$DOTFILES_DIR/claude/CLAUDE.md" ]; then
+    ln -sf "$DOTFILES_DIR/claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
     success "linked Claude CLAUDE.md"
   fi
 
   # Symlink global settings.json
-  if [ -f "$DOTFILES_ROOT/claude/settings.json" ]; then
-    ln -sf "$DOTFILES_ROOT/claude/settings.json" "$HOME/.claude/settings.json"
+  if [ -f "$DOTFILES_DIR/claude/settings.json" ]; then
+    ln -sf "$DOTFILES_DIR/claude/settings.json" "$HOME/.claude/settings.json"
     success "linked Claude settings.json"
   fi
 
   # Symlink rules
-  if [ -d "$DOTFILES_ROOT/claude/rules" ]; then
-    for rule in "$DOTFILES_ROOT/claude/rules"/*.md; do
+  if [ -d "$DOTFILES_DIR/claude/rules" ]; then
+    for rule in "$DOTFILES_DIR/claude/rules"/*.md; do
       if [ -f "$rule" ]; then
         ln -sf "$rule" "$HOME/.claude/rules/$(basename "$rule")"
         success "linked rule $(basename "$rule")"
@@ -289,8 +290,8 @@ install_claude_config () {
   fi
 
   # Symlink agents directory
-  if [ -d "$DOTFILES_ROOT/claude/agents" ]; then
-    ln -sfn "$DOTFILES_ROOT/claude/agents" "$HOME/.claude/agents"
+  if [ -d "$DOTFILES_DIR/claude/agents" ]; then
+    ln -sfn "$DOTFILES_DIR/claude/agents" "$HOME/.claude/agents"
     success "linked Claude agents directory"
   fi
 
