@@ -15,5 +15,8 @@
     "hediet.vscode-drawio.resizeImages": null,
     "jupyter.interactiveWindow.creationMode": "perFile",
     "git.confirmSync": false,
-    "editor.unicodeHighlight.ambiguousCharacters": false
+    "editor.unicodeHighlight.ambiguousCharacters": false,
+    "remote.SSH.remotePlatform": {
+        "ec-claudex-heavy": "linux"
+    }
 }

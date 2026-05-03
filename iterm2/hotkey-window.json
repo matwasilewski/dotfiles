@@ -20,6 +20,8 @@
             "HotKey Window Reopens On Activation": false,
 
             "Window Type": 1,
+            "Screen": -2,
+            "Space": -1,
             "Columns": 80,
             "Rows": 25,
             "Transparency": 0.095,
